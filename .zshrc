@@ -59,7 +59,7 @@ alias ls='exa'
 unalias gc
 alias gc='gcloud'
 
-alias uv='cd $HOME/Tech/3210/cs3210-vagrant; vagrant up; vagrant ssh'
+alias uv='cd $HOME/3210/cs3210-vagrant; vagrant up; vagrant ssh'
 
 export LESS_TERMCAP_md=$(printf "\033[0;35m")  
 

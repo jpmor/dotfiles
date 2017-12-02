@@ -68,9 +68,10 @@ hi VimwikiTag ctermfg=9
 hi VimwikiLink ctermfg=3
 hi VimwikiList ctermfg=48
 hi VimwikiHeader1 ctermfg=14
-hi VimwikiHeader3 ctermfg=14
-hi VimwikiHeader5 ctermfg=9
-hi VimwikiHeader6 ctermfg=10
+hi VimwikiHeader2 ctermfg=9
+hi VimwikiHeader3 ctermfg=6
+hi VimwikiHeader4 ctermfg=3
+hi VimwikiHeader5 ctermfg=10
 hi VimwikiHeaderChar ctermfg=4 
 
 nmap \e :NERDTreeToggle<CR>
