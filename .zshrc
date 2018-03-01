@@ -35,7 +35,7 @@ ZSH_THEME="custom"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
@@ -49,19 +49,25 @@ ZSH_THEME="custom"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+plugins=(git docker vagrant zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+eval "$(pyenv init -)"
+eval "$(rbenv init -)"
+
 alias ls='exa'
 unalias gc
+
 alias gc='gcloud'
+alias crontab="VIM_CRONTAB=true crontab"
 
-alias uv='cd $HOME/3210/cs3210-vagrant; vagrant up; vagrant ssh'
+alias pip3="pip3 --isolated"
 
-export LESS_TERMCAP_md=$(printf "\033[0;35m")  
+alias vpn="sudo openconnect --config ~/.openconnect/config mcvam.rsglab.com"
+alias vpnoff='sudo kill -INT `cat ~/.openconnect/pid`; sudo route delete 205.201.132.5; sudo route delete 205.201.132.4'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

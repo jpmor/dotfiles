@@ -6,7 +6,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 filetype plugin indent off
     call vundle#begin()
         Plugin 'VundleVim/Vundle.vim'
-        Plugin 'dag/vim-fish'
         Plugin 'dracula/vim'
         Plugin 'fatih/vim-go'
         Plugin 'rust-lang/rust.vim'
@@ -37,6 +36,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
+" movement
+nmap <C-e> :e#<CR>
+nmap <C-n> :bnext<CR>
+nmap <C-p> :bprev<CR>
+
 " colors
 syntax on
 set hls
@@ -64,20 +68,18 @@ let site.template_ext = ''
 
 let g:vimwiki_list = [home, site]
  
-hi VimwikiTag ctermfg=9
-hi VimwikiLink ctermfg=3
-hi VimwikiList ctermfg=48
-hi VimwikiHeader1 ctermfg=14
-hi VimwikiHeader2 ctermfg=9
-hi VimwikiHeader3 ctermfg=6
-hi VimwikiHeader4 ctermfg=3
+hi VimwikiHeaderChar ctermfg=25
+hi VimwikiTag ctermfg=204
+hi VimwikiLink ctermfg=214
+hi VimwikiList ctermfg=30
+hi VimwikiItalic ctermfg=173
+hi VimwikiBold ctermfg=141
+hi VimwikiHeader1 ctermfg=45
+hi VimwikiHeader2 ctermfg=167
+hi VimwikiHeader3 ctermfg=36
+hi VimwikiHeader4 ctermfg=13
 hi VimwikiHeader5 ctermfg=10
-hi VimwikiHeaderChar ctermfg=4 
 
+" nerdtree
 nmap \e :NERDTreeToggle<CR>
-" You don't know what you're missing if you don't use this.
-nmap <C-e> :e#<CR>
 
-" Move between open buffers.
-nmap <C-n> :bnext<CR>
-nmap <C-p> :bprev<CR>
