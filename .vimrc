@@ -7,6 +7,7 @@ filetype plugin indent off
     call vundle#begin()
         Plugin 'VundleVim/Vundle.vim'
         Plugin 'dracula/vim'
+        Plugin 'w0rp/ale'
         Plugin 'fatih/vim-go'
         Plugin 'rust-lang/rust.vim'
         Plugin 'scrooloose/nerdtree'
@@ -15,7 +16,7 @@ filetype plugin indent off
 filetype plugin indent on
 
 " general
-set ts=8 et shiftwidth=4 sts=4
+set ts=4 et shiftwidth=4 sts=4
 set bs=indent,eol,start
 set sh=/bin/bash
 set enc=utf-8
@@ -80,6 +81,7 @@ hi VimwikiHeader3 ctermfg=36
 hi VimwikiHeader4 ctermfg=13
 hi VimwikiHeader5 ctermfg=10
 
-" nerdtree
-nmap \e :NERDTreeToggle<CR>
-
+" extra
+nmap <LEADER>d :NERDTreeToggle<CR>
+nmap <LEADER>n :noh<CR>
+nmap <LEADER>l :set invnumber<CR>
