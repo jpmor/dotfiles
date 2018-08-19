@@ -49,25 +49,15 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker kubectl vagrant zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+
+plugins=(git docker kubectl zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/.aliases
+
 # User configuration
-
-eval "$(pyenv init -)"
 eval "$(rbenv init -)"
-
-alias ls='exa'
-unalias gc
-
-alias gc='gcloud'
-alias crontab="VIM_CRONTAB=true crontab"
-
-alias pip3="pip3 --isolated"
-
-alias vpn="sudo openconnect --config ~/.openconnect/config mcvam.rsglab.com"
-alias vpnoff='sudo kill -INT `cat ~/.openconnect/pid`; sudo route delete 205.201.132.5; sudo route delete 205.201.132.4'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

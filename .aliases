@@ -1,0 +1,9 @@
+alias ls='exa'
+alias lg='l -G'
+
+alias crontab="VIM_CRONTAB=true crontab"
+
+alias pip3="pip3 --isolated"
+
+alias vpn="sudo openconnect --config ~/.openconnect/config mcvap.rsglab.com"
+alias vpnoff='sudo kill -INT `cat ~/.openconnect/pid`; sudo route delete 205.201.132.5; sudo route delete 205.201.132.4'
