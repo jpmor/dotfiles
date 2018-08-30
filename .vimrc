@@ -21,6 +21,7 @@ set sh=/bin/bash
 set enc=utf-8
 set nofoldenable
 
+" views 
 augroup AutoSaveViews
   autocmd!
   autocmd BufWinLeave *.* mkview
@@ -38,7 +39,8 @@ syntax enable
 set hls
 set is
 colors dracula
-hi Search ctermfg=46
+
+hi Search ctermfg=46 ctermbg=0 cterm=underline
 hi IncSearch ctermfg=46 ctermbg=0 cterm=underline
 hi Visual ctermbg=236
 
