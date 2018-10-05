@@ -9,7 +9,6 @@ filetype plugin indent off
     Plugin 'dracula/vim'
     " Plugin 'w0rp/ale'
     Plugin 'fatih/vim-go'
-    Plugin 'scrooloose/nerdtree'
     Plugin 'vimwiki/vimwiki'
   call vundle#end()
 filetype plugin indent on
@@ -29,15 +28,16 @@ augroup AutoSaveViews
 augroup END
 
 " windows
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
+nmap <C-H> <C-W><C-H>
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
 
-" colors
+" visuals
 syntax enable
 set hls
 set is
+"set cc=80
 colors dracula
 
 hi Search ctermfg=46 ctermbg=0 cterm=underline
@@ -48,9 +48,10 @@ hi Visual ctermbg=236
 so $HOME/.vim/wiki.conf.vim
 
 " movement
-nmap <LEADER>d :NERDTreeToggle<CR>
 nmap <LEADER>n :noh<CR>
 nmap <LEADER>x :set invnumber<CR>
 nmap <LEADER>e :e#<CR>
 nmap <LEADER>j :lprev<CR>
 nmap <LEADER>k :lnext<CR>
+nmap <LEADER>y "*y
+nmap <LEADER>p "*p
