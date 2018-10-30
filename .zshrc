@@ -58,6 +58,7 @@ source ~/.aliases
 
 # User configuration
 eval "$(rbenv init -)"
+eval "$(pyenv init -)"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
