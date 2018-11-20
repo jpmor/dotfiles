@@ -55,3 +55,4 @@ nmap <LEADER>j :lprev<CR>
 nmap <LEADER>k :lnext<CR>
 nmap <LEADER>y "*y
 nmap <LEADER>p "*p
+nmap <LEADER>f :!open https://finviz.com/quote.ashx?t=<cword><CR>
