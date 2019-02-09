@@ -1,9 +1,10 @@
-alias ls='exa'
-alias lg='l -G'
-
 alias crontab="VIM_CRONTAB=true crontab"
-
+alias v="vim"
+alias lg='l -G'
+alias ls='exa'
+alias mc="cd $MC"
+alias pm="cd $MC/product/mailchimp"
+alias orgrepo="pwd | sed -En 's/^.*mc//p'"
 alias pip3="pip3 --isolated"
-
-alias vpn="sudo openconnect --config ~/.openconnect/config mcvap.rsglab.com"
-alias vpnoff='sudo kill -INT `cat ~/.openconnect/pid`; sudo route delete 205.201.132.5; sudo route delete 205.201.132.4'
+alias t2="tree -L 2"
+alias t3="tree -L 3"
