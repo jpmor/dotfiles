@@ -1,5 +1,4 @@
 " vimwiki
-let mapleader = ' '
 let g:vimwiki_folding='syntax'
 
 let home = {}
@@ -21,13 +20,14 @@ let g:vimwiki_list = [home, site, mc]
  
 hi VimwikiCellSeparator ctermfg=25
 hi VimwikiHeaderChar ctermfg=25
-hi VimwikiTag ctermfg=204
-hi VimwikiLink ctermfg=214
+hi VimwikiTag ctermfg=191
+hi VimwikiLink ctermfg=172
 hi VimwikiList ctermfg=30
 hi VimwikiItalic ctermfg=173
-hi VimwikiBold ctermfg=141
-hi VimwikiHeader1 ctermfg=45
-hi VimwikiHeader2 ctermfg=167
-hi VimwikiHeader3 ctermfg=36
+hi VimwikiBold ctermfg=177
+
+hi VimwikiHeader1 ctermfg=81
+hi VimwikiHeader2 ctermfg=204
+hi VimwikiHeader3 ctermfg=42
 hi VimwikiHeader4 ctermfg=178
-hi VimwikiHeader5 ctermfg=10
+hi VimwikiHeader5 ctermfg=173
