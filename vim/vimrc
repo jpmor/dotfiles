@@ -1,9 +1,10 @@
 set nocompatible
 
-" vundle
+" rtp
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
+" vundle
 filetype plugin indent off
   call vundle#begin()
     Plugin 'VundleVim/Vundle.vim'
@@ -24,19 +25,13 @@ set enc=utf-8
 set nofoldenable
 set clipboard=unnamed
 
-" remove trailing spaces & save view
+" remove trailing spaces & save views
 augroup AutoSaveViews
   autocmd!
   autocmd BufWritePre *.* %s/\s\+$//e
   autocmd BufWinLeave *.* mkview
   autocmd BufWinEnter *.* silent loadview
 augroup END
-
-" windows
-nmap <C-H> <C-W><C-H>
-nmap <C-J> <C-W><C-J>
-nmap <C-K> <C-W><C-K>
-nmap <C-L> <C-W><C-L>
 
 " colors
 syntax enable
@@ -49,49 +44,42 @@ hi IncSearch ctermfg=46 ctermbg=0 cterm=underline
 hi Visual ctermbg=236
 set display+=lastline
 
-" dev
-set tags=.git/tags
+" source funcs
+so $HOME/.vim/funcs.vim
 
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_php_phpcs_standard='$MC/product/mailchimp/vendor/rsg/mc-codesniffer-ruleset/MCStandard --exclude=Generic.Files.LineLength,Squiz.WhiteSpace.SuperfluousWhitespace -d memory_limit=-1'
+" source mc configs
+so $HOME/.vim/mc.vim
 
-function GHE()
-  let u = substitute(expand('%:p:f'), $MC, '', '')
-  let u = substitute(u, '/[a-z\-]*/[a-z\-]*/', '\0tree/master/', '')
-  let u = substitute(u . '\#L' . line('.'), '^', 'https://git.rsglab.com', '')
-  call BROWSE(u)
-endfunction
+" source vimwiki configs
+so $HOME/.vim/wiki.vim
 
-function BROWSE(url)
-  exe 'silent !open ' . a:url
-  redraw!
-endfunction
-
-" vimwiki
-so $HOME/.vim/wiki.conf.vim
+" windows
+nmap <C-H> <C-W><C-H>
+nmap <C-J> <C-W><C-J>
+nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
 
 " mappings
 let mapleader = ' '
-  nmap <silent> <leader>/   :noh<CR>
-  nmap <silent> <leader>x   :set invnumber<CR>
-  nmap <silent> <leader>r   :reg<CR>
+  nmap <silent> <leader>/ :noh<CR>
+  nmap <silent> <leader>x :set invnumber<CR>
+  nmap <silent> <leader>r :reg<CR>
   nmap <silent> , zz
-  nmap <silent> <leader>vv  :so ~/.vimrc<CR>
-  nmap <silent> <leader>v   :e ~/.vimrc<CR>
-  nmap <silent> <leader>z   :e ~/.zshrc<CR>
-  nmap <silent> <leader>Z   :e ~/.zshenv<CR>
-  nmap <silent> <leader>a   :e $DOT/zsh/aliases.zsh<CR>
+  nmap <silent> <leader>V :so ~/.vimrc<CR>
+  nmap <silent> <leader>v :e ~/.vimrc<CR>
+  nmap <silent> <leader>z :e ~/.zshrc<CR>
+  nmap <silent> <leader>Z :e ~/.zshenv<CR>
+  nmap <silent> <leader>a :e $DOT/zsh/aliases.zsh<CR>
 
-  nmap <silent> <leader>f   :GFiles<CR>
-  nmap <silent> <leader>d   :NERDTreeToggle<CR>
-  nmap <silent> <leader>D   :NERDTreeFind<CR>
+  nmap <silent> <leader>f :GFiles<CR>
+  nmap <silent> <leader>d :NERDTreeToggle<CR>
+  nmap <silent> <leader>D :NERDTreeFind<CR>
 
-  nmap <silent> <leader>b   :e#<CR>
-  nmap <silent> <leader>n   :bprevious<cr>
-  nmap <silent> <leader>m   :bnext<cr>
-  nmap <silent> <leader>j   :lprev<CR>
-  nmap <silent> <leader>k   :lnext<CR>
+  nmap <silent> <leader>b :e#<CR>
+  nmap <silent> <leader>n :bprevious<cr>
+  nmap <silent> <leader>m :bnext<cr>
+  nmap <silent> <leader>j :lprev<CR>
+  nmap <silent> <leader>k :lnext<CR>
 
-  nmap <silent> <leader>g   :call GHE()<CR>
-  nmap <silent> <leader>$   :call BROWSE("https://finviz.com/quote.ashx?t=<cword>")<CR>
+  nmap <silent> <leader>g :call GHE()<CR>
+  nmap <silent> <leader>$ :call BROWSE("https://finviz.com/quote.ashx?t=<cword>")<CR>
