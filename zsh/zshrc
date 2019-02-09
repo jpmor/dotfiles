@@ -1,0 +1,16 @@
+plugins=(
+  brew
+  #git
+  #docker
+  zsh-autosuggestions
+  zsh-completions
+  zsh-syntax-highlighting
+)
+
+source "$DOT/zsh/init.zsh"
+source "$DOT/zsh/aliases.zsh"
+source "$DOT/zsh/extra.zsh"
+source "$DOT/zsh/funcs.zsh"
+source "$DOT/zsh/git.zsh"
+
+source "$DOT/zsh/theme.zsh"

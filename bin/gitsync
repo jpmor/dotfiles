@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#for i in $(find /Volumes/CaseSensitive/mc -d 2 -type d | grep -E -v "(go|tmp)"); do
+for i in $(find $MC -d 2 -type d | grep -E -v "(go|tmp)"); do
+  if ! [ -e "$i/.git" ]
+  then
+    continue
+  fi
+
+  if [ -z "$(git -C $i diff upstream/master)" ]
+  then
+    git -C $i pull --quiet upstream master
+    git -C $i push --quiet origin master
+    echo "✅ $i is clean"
+  else
+    echo "❗️ $i is dirty"
+  fi
+  echo
+done

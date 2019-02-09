@@ -79,6 +79,8 @@ let mapleader = ' '
   nmap <silent> , zz
   nmap <silent> <leader>v :e ~/.vimrc<CR>
   nmap <silent> <leader>z :e ~/.zshrc<CR>
+  nmap <silent> <leader>e :e ~/.zshenv<CR>
+  nmap <silent> <leader>a :e $DOT/zsh/aliases.zsh<CR>
   nmap <silent> <leader>s :so ~/.vimrc<CR>
 
   nmap <silent> <leader>f :GFiles<CR>

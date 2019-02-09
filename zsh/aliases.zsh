@@ -1,6 +1,10 @@
+#!/usr/bin/env zsh
+
 alias dot="cd $DOT"
-alias lg='l -G'
 alias ls='exa'
+alias gd='git diff'
+alias gst='git status'
+alias hs='history'
 alias mc="cd $MC"
 alias path="echo $PATH | tr : '\n'"
 alias pm="cd $MC/product/mailchimp"

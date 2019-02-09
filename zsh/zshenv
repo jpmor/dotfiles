@@ -1,0 +1,24 @@
+export LANG="en_US.UTF-8"
+
+export EDITOR="vim"
+export VISUAL="vim"
+export LESS_TERMCAP_md=$'\e[1;32m'
+
+export MC="/Volumes/CaseSensitive/mc"
+export GITHUB_HOST="git.rsglab.com"
+export SITE="https://jpmor.net"
+
+export DOT="$HOME/.dot"
+export RBENV_ROOT="$HOME/.rbenv"
+export GOPATH="/Volumes/CaseSensitive/mc/go"
+export FZF_BASE="/usr/local/bin/fzf"
+export GREP_OPTIONS='--color=auto'
+
+export DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+PATH+=:$RBENV_ROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:$DOT/bin:
+
+#typeset -U PATH
+#eval "$(rbenv init -)"
+#eval "$(pyenv init -)"
+setopt rmstarsilent
