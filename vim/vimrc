@@ -65,7 +65,7 @@ let mapleader = ' '
   nmap <silent> <leader>x :set invnumber<CR>
   nmap <silent> <leader>r :reg<CR>
   nmap <silent> , zz
-  nmap <silent> <leader>V :so ~/.vimrc<CR>
+  nmap <silent> <leader>s :so ~/.vimrc<CR>
   nmap <silent> <leader>v :e ~/.vimrc<CR>
   nmap <silent> <leader>z :e ~/.zshrc<CR>
   nmap <silent> <leader>Z :e ~/.zshenv<CR>
