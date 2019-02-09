@@ -8,7 +8,7 @@ plugins=(
 )
 
 confs=(
-  init #must come first
+  init # must come first
   aliases
   extra
   funcs
