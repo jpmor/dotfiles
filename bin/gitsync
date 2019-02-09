@@ -1,18 +1,17 @@
 #!/bin/bash
 
-for i in $(find $MC -d 2 -type d | grep -E -v "(go|tmp)"); do
-  if ! [ -e "$i/.git" ]
+find "$MC" -d 2 -type d \
+  ! -path "*/go/*" \
+  ! -path "*/tmp/*" \
+  ! -path "*/.git/*" | while read -r repo
+do
+  if [ -z "$(git -C "$repo" diff upstream/master)" ]
   then
-    continue
-  fi
-
-  if [ -z "$(git -C $i diff upstream/master)" ]
-  then
-    git -C $i pull --quiet upstream master
-    git -C $i push --quiet origin master
-    echo "✅ $i is clean"
+    git -C "$repo" pull --quiet upstream master
+    git -C "$repo" push --quiet origin master
+    echo "✅ $repo is clean"
   else
-    echo "❗️ $i is dirty"
+    echo "❗️ $repo is dirty"
   fi
   echo
 done
