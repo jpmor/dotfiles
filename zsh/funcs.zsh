@@ -14,3 +14,22 @@ setup() {
   echo
   echo "Setup Complete!!"; \
 }
+
+gitsync() {
+  find "$MC" -d 2 -type d \
+    ! -path "*/go/*" \
+    ! -path "*/tmp/*" \
+    ! -path "*/.git/*" | while read -r repo
+  do
+    if [ -z "$(git -C "$repo" diff upstream/master)" ]
+    then
+      git -C "$repo" pull --quiet upstream master
+      git -C "$repo" push --quiet origin master
+      echo "✅ $repo is clean"
+    else
+      echo "❗️ $repo is dirty"
+    fi
+    echo
+  done
+}
+
