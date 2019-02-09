@@ -73,25 +73,25 @@ so $HOME/.vim/wiki.conf.vim
 
 " mappings
 let mapleader = ' '
-  nmap <silent> <leader>/ :noh<CR>
-  nmap <silent> <leader>x :set invnumber<CR>
-  nmap <silent> <leader>r :reg<CR>
+  nmap <silent> <leader>/   :noh<CR>
+  nmap <silent> <leader>x   :set invnumber<CR>
+  nmap <silent> <leader>r   :reg<CR>
   nmap <silent> , zz
-  nmap <silent> <leader>v :e ~/.vimrc<CR>
-  nmap <silent> <leader>z :e ~/.zshrc<CR>
-  nmap <silent> <leader>e :e ~/.zshenv<CR>
-  nmap <silent> <leader>a :e $DOT/zsh/aliases.zsh<CR>
-  nmap <silent> <leader>s :so ~/.vimrc<CR>
+  nmap <silent> <leader>vv  :so ~/.vimrc<CR>
+  nmap <silent> <leader>v   :e ~/.vimrc<CR>
+  nmap <silent> <leader>z   :e ~/.zshrc<CR>
+  nmap <silent> <leader>Z   :e ~/.zshenv<CR>
+  nmap <silent> <leader>a   :e $DOT/zsh/aliases.zsh<CR>
 
-  nmap <silent> <leader>f :GFiles<CR>
-  nmap <silent> <leader>d :NERDTreeToggle<CR>
-  nmap <silent> <leader>D :NERDTreeFind<CR>
+  nmap <silent> <leader>f   :GFiles<CR>
+  nmap <silent> <leader>d   :NERDTreeToggle<CR>
+  nmap <silent> <leader>D   :NERDTreeFind<CR>
 
-  nmap <silent> <leader>b :e#<CR>
-  nmap <silent> <leader>n :bprevious<cr>
-  nmap <silent> <leader>m :bnext<cr>
-  nmap <silent> <leader>j :lprev<CR>
-  nmap <silent> <leader>k :lnext<CR>
+  nmap <silent> <leader>b   :e#<CR>
+  nmap <silent> <leader>n   :bprevious<cr>
+  nmap <silent> <leader>m   :bnext<cr>
+  nmap <silent> <leader>j   :lprev<CR>
+  nmap <silent> <leader>k   :lnext<CR>
 
-  nmap <silent> <leader>g :call GHE()<CR>
-  nmap <silent> <leader>$ :call BROWSE("https://finviz.com/quote.ashx?t=<cword>")<CR>
+  nmap <silent> <leader>g   :call GHE()<CR>
+  nmap <silent> <leader>$   :call BROWSE("https://finviz.com/quote.ashx?t=<cword>")<CR>
