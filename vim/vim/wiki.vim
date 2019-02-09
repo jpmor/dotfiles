@@ -7,7 +7,7 @@ let home.path = '~/homewiki/'
 let home.auto_tags = 0
 
 let mc = {}
-let mc.path = '~/mc/rsg/mcwiki'
+let mc.path = '~/mc/tmp/mcwiki'
 let mc.auto_tags = 0
 
 let site = {}
