@@ -7,10 +7,16 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-source "$DOT/zsh/init.zsh"
-source "$DOT/zsh/aliases.zsh"
-source "$DOT/zsh/extra.zsh"
-source "$DOT/zsh/funcs.zsh"
-source "$DOT/zsh/git.zsh"
+confs=(
+  init #must come first
+  aliases
+  extra
+  funcs
+  git
+  hist
+  theme # must come last
+)
 
-source "$DOT/zsh/theme.zsh"
+for conf ($confs); do
+  source "$DOT/zsh/$conf.zsh";
+done
