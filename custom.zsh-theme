@@ -8,11 +8,11 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%})"
 
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
 ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan,bold'
+ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=red'
 ZSH_HIGHLIGHT_STYLES[builtin]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[function]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[command]='fg=cyan,bold'
+ZSH_HIGHLIGHT_STYLES[command]='fg=cyan'
 ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
 ZSH_HIGHLIGHT_STYLES[path_pathsepartor]='fg=blue'
 ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
