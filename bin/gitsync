@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#for i in $(find /Volumes/CaseSensitive/mc -d 2 -type d | grep -E -v "(go|tmp)"); do
 for i in $(find $MC -d 2 -type d | grep -E -v "(go|tmp)"); do
   if ! [ -e "$i/.git" ]
   then
