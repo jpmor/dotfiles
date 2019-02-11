@@ -69,8 +69,9 @@ let mapleader = ' '
   nmap <silent> <leader>v :e ~/.vimrc<CR>
   nmap <silent> <leader>z :e ~/.zshrc<CR>
   nmap <silent> <leader>Z :e ~/.zshenv<CR>
-  nmap <silent> <leader>a :e $DOT/zsh/aliases.zsh<CR>
+  nmap <silent> <leader>A :e ~/.dot/zsh/aliases.zsh<CR>
 
+  nmap <silent> <leader>a :ALEToggle<CR>
   nmap <silent> <leader>f :GFiles<CR>
   nmap <silent> <leader>d :NERDTreeToggle<CR>
   nmap <silent> <leader>D :NERDTreeFind<CR>
