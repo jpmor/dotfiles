@@ -7,12 +7,13 @@ alias hw="cd $HOME/homewiki"
 
 alias brewup='brew update && brew upgrade'
 alias grep='grep --color=auto'
-alias gcm='git commit -m'
-alias gd='git diff'
-alias gst='git status'
-alias grv='git remote -vv'
 alias hs='history 1'
 alias ls='exa'
 alias path="echo $PATH | tr : '\n'"
 alias pip3="pip3 --isolated"
 alias t2="tree -L 2"
+
+alias gcm='git commit -m'
+alias gd='git diff'
+alias gst='git status'
+alias grv='git remote -vv'
