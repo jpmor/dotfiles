@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 # args: org, repo
+# need to clone in GHE first
 setup() {
   origin_ssh_url=git@git.rsglab.com:$USER/$2.git; \
   upstream_ssh_url=git@git.rsglab.com:$1/$2.git; \
