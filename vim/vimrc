@@ -14,6 +14,7 @@ filetype plugin indent off
     Plugin 'scrooloose/nerdtree'
     Plugin 'vimwiki/vimwiki'
     Plugin 'tpope/vim-fugitive'
+    Plugin 'godlygeek/csapprox'
     Plugin 'w0rp/ale'
   call vundle#end()
 filetype plugin indent on
@@ -66,7 +67,7 @@ let mapleader = ' '
   nmap <silent> <leader>x :set invnumber<CR>
   nmap <silent> <leader>r :reg<CR>
   nmap <silent> , zz
-  nmap <silent> <leader>s :so ~/.vimrc<CR>
+  nmap <silent> <leader>c :so ~/.vimrc<CR>
   nmap <silent> <leader>v :e ~/.vimrc<CR>
   nmap <silent> <leader>z :e ~/.zshrc<CR>
   nmap <silent> <leader>Z :e ~/.zshenv<CR>
@@ -76,13 +77,14 @@ let mapleader = ' '
   nmap <silent> <leader>f :GFiles<CR>
   nmap <silent> <leader>d :NERDTreeToggle<CR>
   nmap <silent> <leader>D :NERDTreeFind<CR>
+  nmap <silent> <leader>b :Gblame<CR>
 
   "nmap <silent> <leader>b :e#<CR>
-  nmap <silent> <leader>n :bprevious<cr>
-  nmap <silent> <leader>m :bnext<cr>
+  nmap <silent> <leader>, :bprevious<cr>
+  nmap <silent> <leader>. :bnext<cr>
   nmap <silent> <leader>j :lprev<CR>
   nmap <silent> <leader>k :lnext<CR>
 
-  nmap <silent> <leader>g :call Line()<CR>
-  nmap <silent> <leader>b :call Blame()<CR>
+  nmap <silent> <leader>n :call Line()<CR>
+  nmap <silent> <leader>m :call Blame()<CR>
   nmap <silent> <leader>$ :call Browse("https://finviz.com/quote.ashx?t=<cword>")<CR>
