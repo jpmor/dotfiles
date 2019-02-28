@@ -17,20 +17,15 @@ setup() {
 }
 
 gitsync() {
-  find "$MC" -d 2 -type d \
-    ! -path "*/go/*" \
-    ! -path "*/tmp/*" \
-    ! -path "*/.git/*" | while read -r repo
-  do
-    if [ -z "$(git -C "$repo" diff upstream/master)" ]
+  find "$MC" "$MCGO" -d 2 -maxdepth 2 -type d | parallel \
+    'if [ ! -d {}/.git ]; then exit; fi
+    if [ -z "$(git -C {} diff upstream/master)" ]
     then
-      git -C "$repo" pull --quiet upstream master
-      git -C "$repo" push --quiet origin master
-      echo "✅ $repo is clean"
+      git -C "{}" pull --quiet upstream master
+      git -C "{}" push --quiet origin master
+      printf "✅ "
     else
-      echo "❗️ $repo is dirty"
+      printf "❗️ "
     fi
-    echo
-  done
+    echo {} | sed -En "s/.*\/([a-z]*\/[a-z]*)/\1/p"'
 }
-
