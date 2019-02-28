@@ -9,7 +9,7 @@ alias hw="cd $HOME/homewiki"
 
 alias brewup='brew update && brew upgrade'
 alias grep='grep --color=auto'
-alias hs='history 1'
+alias hs='history 1 | grep'
 alias k='kubectl'
 alias ls='exa'
 alias path="echo $PATH | tr : '\n'"
