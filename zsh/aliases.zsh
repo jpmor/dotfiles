@@ -1,11 +1,11 @@
 #!/usr/bin/env zsh
 
 alias dot="cd $DOT"
+alias hw="cd $HOME/homewiki"
 alias mc="cd $MC"
 alias mcgo="cd $MCGO"
-alias pm="cd $MC/product/mailchimp"
 alias op="cd $MC/ops/puppet-modules"
-alias hw="cd $HOME/homewiki"
+alias pm="cd $MC/product/mailchimp"
 
 alias brewup='brew update && brew upgrade'
 alias grep='grep --color=auto'
