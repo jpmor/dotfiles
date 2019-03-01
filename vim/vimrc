@@ -26,6 +26,8 @@ set sh=/bin/bash
 set enc=utf-8
 set nofoldenable
 set clipboard=unnamed
+set foldmethod=indent
+set history=1000
 
 " remove trailing spaces & save views
 augroup AutoSaveViews
@@ -46,6 +48,9 @@ hi IncSearch ctermfg=46 ctermbg=0 cterm=underline
 hi Visual ctermbg=236
 set display+=lastline
 
+" source maps
+so $HOME/.vim/maps.vim
+
 " source funcs
 so $HOME/.vim/funcs.vim
 
@@ -54,37 +59,3 @@ so $HOME/.vim/mc.vim
 
 " source vimwiki configs
 so $HOME/.vim/wiki.vim
-
-" windows
-nmap <C-H> <C-W><C-H>
-nmap <C-J> <C-W><C-J>
-nmap <C-K> <C-W><C-K>
-nmap <C-L> <C-W><C-L>
-
-" mappings
-let mapleader = ' '
-  nmap <silent> <leader>/ :noh<CR>
-  nmap <silent> <leader>x :set invnumber<CR>
-  nmap <silent> <leader>r :reg<CR>
-  nmap <silent> , zz
-  nmap <silent> <leader>c :so ~/.vimrc<CR>
-  nmap <silent> <leader>v :e ~/.vimrc<CR>
-  nmap <silent> <leader>z :e ~/.zshrc<CR>
-  nmap <silent> <leader>Z :e ~/.zshenv<CR>
-  nmap <silent> <leader>A :e ~/.dot/zsh/aliases.zsh<CR>
-
-  nmap <silent> <leader>a :ALEToggle<CR>
-  nmap <silent> <leader>f :GFiles<CR>
-  nmap <silent> <leader>d :NERDTreeToggle<CR>
-  nmap <silent> <leader>D :NERDTreeFind<CR>
-  nmap <silent> <leader>b :Gblame<CR>
-
-  "nmap <silent> <leader>b :e#<CR>
-  nmap <silent> <leader>, :bprevious<cr>
-  nmap <silent> <leader>. :bnext<cr>
-  nmap <silent> <leader>j :lprev<CR>
-  nmap <silent> <leader>k :lnext<CR>
-
-  nmap <silent> <leader>n :call Line()<CR>
-  nmap <silent> <leader>m :call Blame()<CR>
-  nmap <silent> <leader>$ :call Browse("https://finviz.com/quote.ashx?t=<cword>")<CR>
