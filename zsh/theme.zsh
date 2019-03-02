@@ -1,6 +1,12 @@
 #!/usr/bin/env zsh
 
-local ret_status="%(?:%{$fg_bold[green]%}>:%{$fg_bold[red]%}>)"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  p="\$"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  p=">"
+fi
+
+local ret_status="%(?:%{$fg_bold[green]%}$p:%{$fg_bold[red]%}$p)"
 PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
 
 typeset -gA ZSH_HIGHLIGHT_STYLES
