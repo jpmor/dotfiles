@@ -14,6 +14,7 @@ alias k='kubectl'
 alias ls='exa'
 alias path="echo $PATH | tr : '\n'"
 alias pip3="pip3 --isolated"
+alias sed="gsed"
 alias t2="tree -L 2"
 
 alias gcm='git commit -m'
