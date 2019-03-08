@@ -34,7 +34,8 @@ nmap <silent> <leader>j <C-W><C-J>
 nmap <silent> <leader>k <C-W><C-K>
 nmap <silent> <leader>l <C-W><C-L>
 
+nmap <silent> <leader>b V:s/\.[ ]*/.\r\r/g<CR>d2d
 
 nmap <silent> <leader>gf :call Line()<CR>
 nmap <silent> <leader>gh :call Blame()<CR>
-nmap <silent> <leader>$ :call Browse("https://finviz.com/quote.ashx?t=<cword>")<CR>
+nmap <silent> <leader>4 :call Browse("https://finviz.com/quote.ashx?t=<cword>")<CR>
