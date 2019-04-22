@@ -34,6 +34,8 @@ nmap <silent> <leader>j <C-W><C-J>
 nmap <silent> <leader>k <C-W><C-K>
 nmap <silent> <leader>l <C-W><C-L>
 
+" other
+nmap <silent> <leader>p :let @+ = join([expand('%'),  line(".")], ':')<CR>
 nmap <silent> <leader>b V:s/\.[ ]*/.\r\r/g<CR>d2d
 
 nmap <silent> <leader>gf :call Line()<CR>
