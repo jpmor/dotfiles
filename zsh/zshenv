@@ -13,6 +13,7 @@ export DOT="$HOME/.dot"
 export RBENV_ROOT="$HOME/.rbenv"
 export GOPATH="/Volumes/CaseSensitive/mc/go"
 export FZF_BASE="/usr/local/bin/fzf"
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
