@@ -1,4 +1,21 @@
-set nocompatible
+" Bail out if something that ran earlier, e.g. a system wide vimrc, does not
+" want Vim to use these default values.
+if exists('skip_defaults_vim')
+  finish
+endif
+
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+" Avoid side effects when it was already reset.
+if &compatible
+  set nocompatible
+endif
+
+" When the +eval feature is missing, the set command above will be skipped.
+" Use a trick to reset compatible only when the +eval feature is missing.
+silent! while 0
+  set nocompatible
+silent! endwhile
 
 " rtp
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -6,47 +23,86 @@ set rtp+=/usr/local/opt/fzf
 
 " vundle
 filetype plugin indent off
-  call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
-    Plugin 'dracula/vim'
-    Plugin 'fatih/vim-go'
-    Plugin 'junegunn/fzf.vim'
-    Plugin 'scrooloose/nerdtree'
-    Plugin 'vimwiki/vimwiki'
-    Plugin 'tpope/vim-fugitive'
-    Plugin 'godlygeek/csapprox'
-    Plugin 'w0rp/ale'
-  call vundle#end()
-filetype plugin indent on
+call vundle#begin()
+  Plugin 'VundleVim/Vundle.vim'
+  Plugin 'dracula/vim'
+  Plugin 'fatih/vim-go'
+  Plugin 'junegunn/fzf.vim'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'vimwiki/vimwiki'
+  Plugin 'tpope/vim-fugitive'
+  Plugin 'godlygeek/csapprox'
+  Plugin 'w0rp/ale'
+call vundle#end()
 
 " general
 set ts=2 et shiftwidth=2 sts=2
-set bs=indent,eol,start
-set sh=/bin/bash
-set enc=utf-8
-set nofoldenable
+set backspace=indent,eol,start
+set shell=/bin/bash
+set encoding=utf-8
 set clipboard=unnamed
+set nofoldenable
 set foldmethod=indent
-set history=1000
+set ignorecase smartcase
 
-" remove trailing spaces & save views
-augroup AutoSaveViews
-  autocmd!
-  autocmd BufWritePre *.* %s/\s\+$//e
-  autocmd BufWinLeave *.* mkview
-  autocmd BufWinEnter *.* silent loadview
-augroup END
+set history=200		" keep 200 lines of command line history
+set ruler		" show the cursor position all the time
+set showcmd		" display incomplete commands
+set wildmenu		" display completion matches in a status line
+
+set ttimeout		" time out for key codes
+set ttimeoutlen=100	" wait up to 100ms after Esc for special key
+
+" Show @@@ in the last line if it is truncated.
+set display=truncate
 
 " colors
-syntax enable
 set hls
 set is
 "set cc=80
 colors dracula
 hi Search ctermfg=46 ctermbg=0 cterm=underline
-hi IncSearch ctermfg=46 ctermbg=0 cterm=underline
+
+" Do incremental searching when it's possible to timeout.
+if has('reltime')
+  set incsearch
+  hi IncSearch ctermfg=46 ctermbg=0 cterm=underline
+endif
+
 hi Visual ctermbg=236
-set display+=lastline
+
+" Switch syntax highlighting on when the terminal has colors or when using the
+" GUI (which always has colors).
+if &t_Co > 2 || has("gui_running")
+  syntax on
+endif
+
+" Only do this part when Vim was compiled with the +eval feature.
+if 1
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+
+  " Put these in an autocmd group, so that you can revert them with:
+  " ":augroup vimStartup | au! | augroup END"
+  augroup vimStartup
+    au!
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid, when inside an event handler
+    " (happens when dropping a file on gvim) and for a commit message (it's
+    " likely a different one than last time).
+    autocmd BufReadPost *
+      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+      \ |   exe "normal! g`\""
+      \ | endif
+
+  augroup END
+
+endif
 
 " source maps
 so $HOME/.vim/maps.vim
