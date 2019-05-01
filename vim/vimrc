@@ -62,19 +62,18 @@ set is
 "set cc=80
 colors dracula
 
-" Do incremental searching when it's possible to timeout.
-if has('reltime')
-  set incsearch
-  hi IncSearch ctermfg=46 ctermbg=0 cterm=underline
-endif
-
-
 " Switch syntax highlighting on when the terminal has colors or when using the
 " GUI (which always has colors).
 if &t_Co > 2 || has("gui_running")
   syntax on
   hi Search ctermfg=46 ctermbg=0 cterm=underline
   hi Visual ctermbg=236
+endif
+
+" Do incremental searching when it's possible to timeout.
+if has('reltime')
+  set incsearch
+  hi IncSearch ctermfg=46 ctermbg=0 cterm=underline
 endif
 
 " Only do this part when Vim was compiled with the +eval feature.
