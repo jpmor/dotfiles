@@ -18,22 +18,22 @@ silent! while 0
 silent! endwhile
 
 " rtp
-set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
-" vundle
-filetype plugin indent off
-call vundle#begin()
-  Plugin 'VundleVim/Vundle.vim'
-  Plugin 'dracula/vim'
-  Plugin 'fatih/vim-go'
-  Plugin 'junegunn/fzf.vim'
-  Plugin 'scrooloose/nerdtree'
-  Plugin 'vimwiki/vimwiki'
-  Plugin 'tpope/vim-fugitive'
-  Plugin 'godlygeek/csapprox'
-  Plugin 'w0rp/ale'
-call vundle#end()
+"filetype plugin indent off
+
+call plug#begin('~/.vim/plug')
+  Plug 'dracula/vim'
+  Plug 'fatih/vim-go'
+  Plug 'godlygeek/csapprox'
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-fugitive'
+  Plug 'vimwiki/vimwiki'
+  Plug 'w0rp/ale'
+call plug#end()
 
 " general
 set ts=2 et shiftwidth=2 sts=2
@@ -61,7 +61,6 @@ set hls
 set is
 "set cc=80
 colors dracula
-hi Search ctermfg=46 ctermbg=0 cterm=underline
 
 " Do incremental searching when it's possible to timeout.
 if has('reltime')
@@ -69,12 +68,13 @@ if has('reltime')
   hi IncSearch ctermfg=46 ctermbg=0 cterm=underline
 endif
 
-hi Visual ctermbg=236
 
 " Switch syntax highlighting on when the terminal has colors or when using the
 " GUI (which always has colors).
 if &t_Co > 2 || has("gui_running")
   syntax on
+  hi Search ctermfg=46 ctermbg=0 cterm=underline
+  hi Visual ctermbg=236
 endif
 
 " Only do this part when Vim was compiled with the +eval feature.
@@ -101,6 +101,10 @@ if 1
       \ | endif
 
   augroup END
+
+  " Strip trailing whitespace on write
+  autocmd BufWritePre *.* %s/\s\+$//e
+
 
 endif
 
