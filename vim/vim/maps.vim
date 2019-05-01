@@ -33,6 +33,11 @@ nmap <silent> <leader>h <C-W><C-H>
 nmap <silent> <leader>j <C-W><C-J>
 nmap <silent> <leader>k <C-W><C-K>
 nmap <silent> <leader>l <C-W><C-L>
+" ----------------------------------------------------------------------------
+" <tab> / <s-tab> | Circular windows navigation
+" ----------------------------------------------------------------------------
+nnoremap <tab>   <c-w>w
+nnoremap <S-tab> <c-w>W
 
 " other
 nmap <silent> <leader>p :let @+ = join([expand('%'),  line(".")], ':')<CR>
