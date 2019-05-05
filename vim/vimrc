@@ -31,8 +31,8 @@ call plug#begin('~/.vim/plug')
   Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
-  Plug 'vimwiki/vimwiki'
-  Plug 'w0rp/ale'
+  Plug 'w0rp/ale', { 'on':  'ALEToggle' }
+  Plug '~/side/vimwiki'
 call plug#end()
 
 " general
