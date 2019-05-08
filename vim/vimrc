@@ -20,21 +20,6 @@ silent! endwhile
 " rtp
 set rtp+=/usr/local/opt/fzf
 
-"filetype plugin indent off
-
-call plug#begin('~/.vim/plug')
-  Plug 'dracula/vim'
-  Plug 'fatih/vim-go'
-  Plug 'godlygeek/csapprox'
-  Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/goyo.vim'
-  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-  Plug 'scrooloose/nerdtree'
-  Plug 'tpope/vim-fugitive'
-  Plug 'w0rp/ale', { 'on':  'ALEToggle' }
-  Plug '~/side/vimwiki'
-call plug#end()
-
 " general
 set ts=2 et shiftwidth=2 sts=2
 set backspace=indent,eol,start
@@ -104,8 +89,21 @@ if 1
   " Strip trailing whitespace on write
   autocmd BufWritePre *.* %s/\s\+$//e
 
-
 endif
+
+" Load plugins
+call plug#begin('~/.vim/plug')
+  Plug 'dracula/vim'
+  Plug 'fatih/vim-go'
+  Plug 'godlygeek/csapprox'
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-fugitive'
+  Plug 'w0rp/ale', { 'on':  'ALEToggle' }
+  Plug '~/side/vimwiki'
+call plug#end()
 
 " source maps
 so $HOME/.vim/maps.vim
