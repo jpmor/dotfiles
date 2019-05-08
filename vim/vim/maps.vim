@@ -10,11 +10,11 @@ nmap <silent> <leader>\ :set invrightleft<CR>
 "nmap <silent> <leader>r :reg<CR>
 
 " configs
-nmap <silent> <leader>r :so ~/.vimrc<CR>
-nmap <silent> <leader>v :e ~/.vimrc<CR>
-nmap <silent> <leader>m :e ~/.vim/maps.vim<CR>
-nmap <silent> <leader>z :e ~/.zshenv<CR>
-nmap <silent> <leader>a :e ~/.dot/zsh/aliases.zsh<CR>
+nmap <silent> <leader>r :so $DOT/vim/vimrc<CR>
+nmap <silent> <leader>v :e $DOT/vim/vimrc<CR>
+nmap <silent> <leader>m :e $DOT/vim/vim/maps.vim<CR>
+nmap <silent> <leader>z :e $DOT/zsh/zshenv<CR>
+nmap <silent> <leader>a :e $DOT/zsh/aliases.zsh<CR>
 
 " plugins
 nmap <silent> <leader>A :ALEToggle<CR>
