@@ -4,24 +4,25 @@ let mapleader = ' '
 
 " inv toggles
 nmap <silent> <leader>/ :set invhls<CR>
-nmap <silent> <leader>x :set invnu<CR>
+nmap <silent> <leader>x :set invrnu invnu<CR>
 nmap <silent> <leader>s :set invspell<CR>
 nmap <silent> <leader>\ :set invrightleft<CR>
 "nmap <silent> <leader>r :reg<CR>
 
 " configs
+nmap <silent> <leader>a :e $DOT/zsh/aliases.zsh<CR>
+nmap <silent> <leader>m :e $DOT/vim/vim/maps.vim<CR>
 nmap <silent> <leader>r :so $DOT/vim/vimrc<CR>
 nmap <silent> <leader>v :e $DOT/vim/vimrc<CR>
-nmap <silent> <leader>m :e $DOT/vim/vim/maps.vim<CR>
 nmap <silent> <leader>z :e $DOT/zsh/zshenv<CR>
-nmap <silent> <leader>a :e $DOT/zsh/aliases.zsh<CR>
 
 " plugins
+"nmap <silent> <leader>F :GFiles<CR>
 nmap <silent> <leader>A :ALEToggle<CR>
-nmap <silent> <leader>f :GFiles<CR>
-nmap <silent> <leader>d :NERDTreeToggle<CR>
-nmap <silent> <leader>D :NERDTreeFind<CR>
 nmap <silent> <leader>B :Gblame<CR>
+nmap <silent> <leader>D :NERDTreeFind<CR>
+nmap <silent> <leader>d :NERDTreeToggle<CR>
+nmap <silent> <leader>f :Goyo<CR>
 
 "nmap <silent> <leader>b :e#<CR>
 nmap , %
