@@ -29,3 +29,11 @@ gitsync() {
     fi
     echo {} | sed -En "s/.*\/([a-z]*\/[a-z]*)/\1/p"'
 }
+
+hit() {
+  vim $(rg -e "$1" --vimgrep -g '!node_modules*' $2 | fzf | sed 's/:/ +/' | cut -d ":" -f1) -c 'normal zz'
+}
+
+tag() {
+  vim $(rg -e ":$1:" --sortr=path --vimgrep $2 $HOME/homewiki/diary | sed 's/:/#/3' | fzf -d \# --with-nth 2 | sed 's/:/ +/' | cut -d ":" -f1)
+}
