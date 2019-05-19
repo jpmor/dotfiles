@@ -98,10 +98,10 @@ call plug#begin('~/.vim/plug')
   Plug 'godlygeek/csapprox'
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
-  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}, 'on': 'CocEnable'}
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
-  Plug 'w0rp/ale', { 'on':  'ALEToggle' }
+  Plug 'w0rp/ale', {'on': 'ALEToggle'}
   Plug '~/side/vimwiki'
 call plug#end()
 
