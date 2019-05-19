@@ -5,17 +5,21 @@ let g:vimwiki_folding='syntax'
 let home = {}
 let home.name = 'home'
 let home.path = '~/homewiki/'
-let home.auto_tags = 0
+let home.syntax = 'markdown'
+let home.ext = '.md'
+let home.diary_rel_path = 'log/'
+let home.diary_index = 'log'
+let home.diary_header = 'Log'
 
 let mc = {}
 let mc.name = 'mc'
 let mc.path = '~/mc/rsg/mcwiki'
-let mc.auto_tags = 0
 
 let site = {}
 let site.name = 'site'
 let site.path = '~/side/site/sitewiki/'
 let site.path_html = '~/side/site/'
+let site.css_name = '~/static/style.css'
 let site.auto_export = 1
 let site.template_path = '~/side/site/static/'
 let site.template_default = 'template'

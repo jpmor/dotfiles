@@ -18,7 +18,7 @@ alias pip3="pip3 --isolated"
 alias sed="gsed"
 alias t2="tree -L 2"
 
-alias tags='rg -e ":[a-z]*:" -o -N --no-filename $HOME/homewiki/diary | sort | uniq -c'
+alias tags='rg -e ":[a-z]*:" -o -N --no-filename $HOME/homewiki/log | sort | uniq -c'
 
 alias gcm='git commit -m'
 alias gd='git diff'

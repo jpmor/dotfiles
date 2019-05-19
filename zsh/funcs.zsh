@@ -35,5 +35,5 @@ hit() {
 }
 
 tag() {
-  vim $(rg -e ":$1:" --sortr=path --vimgrep $2 $HOME/homewiki/diary | sed 's/:/#/3' | fzf -d \# --with-nth 2 | sed 's/:/ +/' | cut -d ":" -f1)
+  vim $(rg -e ":$1:" --sortr=path --vimgrep $2 $HOME/homewiki/log | sed 's/:/#/3' | fzf -d \# --with-nth 2 | sed 's/:/ +/' | cut -d ":" -f1)
 }
