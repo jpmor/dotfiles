@@ -1,6 +1,7 @@
 " vimwiki configs
 
-let g:vimwiki_folding='syntax'
+" let g:vimwiki_folding = 'syntax'
+let g:vimwiki_markdown_link_ext = 1
 
 let home = {}
 let home.name = 'home'
