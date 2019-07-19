@@ -4,7 +4,7 @@ let mapleader = ' '
 
 " inv toggles
 nmap <silent> <leader>/ :set invhls<CR>
-nmap <silent> <leader>x :set invrnu invnu<CR>
+nmap <silent> <leader>x :set invnu<CR>
 nmap <silent> <leader>s :set invspell<CR>
 nmap <silent> <leader>\ :set invrightleft<CR>
 "nmap <silent> <leader>r :reg<CR>
