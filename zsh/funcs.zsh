@@ -31,7 +31,10 @@ gitsync() {
 }
 
 hit() {
-  vim $(rg -e "$1" --vimgrep -g '!node_modules*' $2 | fzf | sed 's/:/ +/' | cut -d ":" -f1) -c 'normal zz'
+  y=$(rg -e "$1" --vimgrep -g '!node_modules*' $2 | fzf -0 | sed 's/:/ +/' | cut -d ":" -f1)
+  if [ ! -z "$y" ]; then
+    vim $(echo $y)  -c 'normal zz'
+  fi
 }
 
 tag() {
