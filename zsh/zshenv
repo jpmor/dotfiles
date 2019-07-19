@@ -8,16 +8,17 @@ export MC="/Volumes/CaseSensitive/mc"
 export MCGO="$MC/go/src/git.rsglab.com"
 export GITHUB_HOST="git.rsglab.com"
 export SITE="https://jpmor.net"
-
 export DOT="$HOME/.dot"
+
 export RBENV_ROOT="$HOME/.rbenv"
 export GOPATH="/Volumes/CaseSensitive/mc/go"
 export FZF_BASE="/usr/local/bin/fzf"
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key"
 
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-PATH+=:$RBENV_ROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:$DOT/bin:
+PATH+=:$RBENV_ROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:$DOT/bin:/usr/local/sbin:
 
 #typeset -U PATH
 #eval "$(rbenv init -)"
