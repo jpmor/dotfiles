@@ -68,7 +68,7 @@ if 1
   " Use the default filetype settings, so that mail gets 'tw' set to 72,
   " 'cindent' is on in C files, etc.
   " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+  filetype plugin on
 
   " Put these in an autocmd group, so that you can revert them with:
   " ":augroup vimStartup | au! | augroup END"
@@ -104,6 +104,8 @@ call plug#begin('~/.vim/plug')
   Plug 'w0rp/ale', {'on': 'ALEToggle'}
   Plug '~/side/vimwiki'
 call plug#end()
+
+filetype indent off
 
 " source maps
 so $HOME/.vim/maps.vim
