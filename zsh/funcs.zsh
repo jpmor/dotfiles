@@ -30,6 +30,19 @@ gitsync() {
     echo {} | sed -En "s/.*\/([a-z]*\/[a-z]*)/\1/p"'
 }
 
+hs() {
+  if [ ! -z "$1" ]; then
+    y=$(history 1 | grep $1 | fzf -0 --tac --layout=default --tiebreak=index | awk '{$1=$1};1' | cut -d " " -f 2-)
+    if [ ! -z "$y" ]; then
+      echo "\033[0;33m> $y\033[0m"
+      echo ": $(date +"%s"):0;$y" >> $HISTFILE
+      eval $y
+    fi
+  else
+    history -25
+  fi
+}
+
 hit() {
   y=$(rg -e "$1" --vimgrep -g '!node_modules*' $2 | fzf -0 | sed 's/:/ +/' | cut -d ":" -f1)
   if [ ! -z "$y" ]; then
@@ -38,5 +51,8 @@ hit() {
 }
 
 tag() {
-  vim $(rg -e ":$1:" --sortr=path --vimgrep $2 $HOME/homewiki/log | sed 's/:/#/3' | fzf -d \# --with-nth 2 | sed 's/:/ +/' | cut -d ":" -f1)
+  y=$(rg -e ":$1:" --sortr=path --vimgrep $2 $HOME/homewiki/log | sed 's/:/#/3' | fzf -0 -d \# --with-nth 2 | sed 's/:/ +/' | cut -d ":" -f1)
+  if [ ! -z "$y" ]; then
+    vim $(echo $y)  -c 'normal zz'
+  fi
 }

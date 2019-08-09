@@ -10,7 +10,7 @@ alias pm="cd $MC/product/mailchimp"
 
 alias brewup='brew update && brew upgrade'
 alias grep='grep --color=auto'
-alias hs='history 1 | grep'
+#alias hs='history 1 | grep'
 alias k='kubectl'
 alias ls='exa'
 alias path="echo $PATH | tr : '\n'"
