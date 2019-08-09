@@ -15,6 +15,8 @@ let home.diary_header = 'Log'
 let mc = {}
 let mc.name = 'mc'
 let mc.path = '~/mc/rsg/mcwiki'
+let mc.syntax = 'markdown'
+let mc.ext = '.md'
 
 let site = {}
 let site.name = 'site'
@@ -40,4 +42,5 @@ hi VimwikiHeader1 ctermfg=81
 hi VimwikiHeader2 ctermfg=204
 hi VimwikiHeader3 ctermfg=42
 hi VimwikiHeader4 ctermfg=178
-hi VimwikiHeader5 ctermfg=173
+hi VimwikiHeader5 ctermfg=99
+hi VimwikiHeader6 ctermfg=37
