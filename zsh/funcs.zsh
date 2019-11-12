@@ -43,3 +43,7 @@ tag() {
     vim $(echo $y)  -c 'normal zz'
   fi
 }
+
+peaches() {
+  open "https://us1.admin.mailchimp.com/peaches2/tools/user-search/direct-search?search-input=$1"
+}
