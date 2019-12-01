@@ -2,7 +2,7 @@
 
 alias dot="cd $DOT"
 alias hw="cd $HOME/homewiki"
-alias ss="cd $HOME/side/site"
+alias sw="cd $HOME/side/site"
 alias mc="cd $MC"
 alias mcgo="cd $MCGO"
 alias op="cd $MC/ops/puppet-modules"
