@@ -22,7 +22,6 @@ nmap <silent> <leader>A :ALEToggle<CR>
 nmap <silent> <leader>B :Gblame<CR>
 nmap <silent> <leader>D :NERDTreeFind<CR>
 nmap <silent> <leader>d :NERDTreeToggle<CR>
-nmap <silent> <leader>f :Goyo<CR>
 
 "nmap <silent> <leader>b :e#<CR>
 nmap , %
