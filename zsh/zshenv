@@ -20,6 +20,8 @@ export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 PATH+=:$RBENV_ROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:$DOT/bin:/usr/local/sbin:
 
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #typeset -U PATH
 #eval "$(rbenv init -)"
 #eval "$(pyenv init -)"

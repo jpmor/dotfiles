@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+# automatically clones and sets up repos for MC
 # args: org, repo
 setup() {
   ghe_api_url="https://git.rsglab.com/api/v3/repos/$1/$2/forks"
@@ -20,6 +21,7 @@ setup() {
   echo "Setup Complete!!"
 }
 
+# pulls in updates for all my MC repos
 gitsync() {
   find "$MC" "$MCGO" -d 2 -maxdepth 2 -type d | parallel \
     'if [ ! -d {}/.git ]; then exit; fi
@@ -34,6 +36,7 @@ gitsync() {
     echo {} | sed -En "s/.*\/([a-z]*\/[a-z]*)/\1/p"'
 }
 
+# fuzzy find phrases and then open that line in vim
 hit() {
   y=$(rg -e "$1" --vimgrep -g '!node_modules*' $2 | fzf -0 | sed 's/:/ +/' | cut -d ":" -f1)
   if [ ! -z "$y" ]; then
@@ -41,6 +44,7 @@ hit() {
   fi
 }
 
+# read through notes by category
 tag() {
   y=$(rg -e ":$1:" --sortr=path --vimgrep $2 $HOME/homewiki/log | sed 's/:/#/3' | fzf -0 -d \# --with-nth 2 | sed 's/:/ +/' | cut -d ":" -f1)
   if [ ! -z "$y" ]; then
@@ -48,14 +52,17 @@ tag() {
   fi
 }
 
+# open a user's MCA page
 p() {
   open "https://us1.admin.mailchimp.com/peaches2/tools/user-search/direct-search?search-input=$1"
 }
 
+# show 5 most recent bugsnags to hit the MC project
 newbugs() {
   curl -s -H "X-Bugsnag-API: true" -H "X-Version: 2" -H "Authorization: token $(cat ~/.bstoken)" "https://api.bugsnag.com/projects/5d40577f2103c00011aa3a7f/errors?&sort=first_seen&direction=desc" | jq '.[0:5][]|{first_seen: .first_seen, context: .context, message: .message, users: .users, id: .id}'
 }
 
+# ssh to whatever host a vip is on
 vipssh() {
   vip="$1"
   host=$(dcm vips list | grep $vip | awk '{ print $1; }' | sed 's/\([a-z0-9]*\)-\([a-z0-9]*\)-.*/\1.\2.rsglab.com/g')
@@ -75,6 +82,7 @@ vipssh() {
   ssh $current_host
 }
 
+# build login sessions on every shard
 mcurl() {
   seq 1 20 | parallel \
     'shardkey="$(jq -r .us{} $HOME/.howler.json)"
@@ -82,6 +90,7 @@ mcurl() {
     curl -sk -X POST "https://us{}.admin.mailchimp.com/login/post/" -d  $shardkey -c $shardcookie'
 }
 
+# update monolith ctags
 updateCtags() {
   /usr/local/bin/ctags -a -o .git/tags --options ~/.ctags .
 }
