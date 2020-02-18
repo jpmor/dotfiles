@@ -81,3 +81,7 @@ mcurl() {
     shardcookie="$HOME/.cookies/us{}"
     curl -sk -X POST "https://us{}.admin.mailchimp.com/login/post/" -d  $shardkey -c $shardcookie'
 }
+
+updateCtags() {
+  /usr/local/bin/ctags -a -o .git/tags --options ~/.ctags .
+}
