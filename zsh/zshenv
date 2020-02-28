@@ -15,6 +15,7 @@ export GOPATH="/Volumes/CaseSensitive/mc/go"
 export FZF_BASE="/usr/local/bin/fzf"
 export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key"
+export CS_STANDARD="$MC/product/mailchimp/vendor/rsg/mc-codesniffer-ruleset/MCStandard"
 
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
