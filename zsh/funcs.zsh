@@ -92,5 +92,5 @@ mcurl() {
 
 # update monolith ctags
 updateCtags() {
-  /usr/local/bin/ctags -a -o .git/tags --options ~/.ctags .
+  ctags -a -o .git/tags --options ~/.ctags.cnf .
 }
