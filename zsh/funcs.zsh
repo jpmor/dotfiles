@@ -94,3 +94,7 @@ mcurl() {
 updateCtags() {
   ctags -a -o .git/tags --options ~/.ctags.cnf .
 }
+
+openbugs() {
+  open "https://app.bugsnag.com/mailchimp-2/mailchimp-1/errors?$(cat $MC/product/mailchimp/.github/CODEOWNERS | grep mone | sed -e 's/ .*//g' -e 's/^\///g' -e 's/\//%2F/g' | awk '{print "&filters[event.file]["NR-1"][type]=eq&filters[event.file]["NR-1"][value]=" $0}' | tr -d '\n')"
+}
