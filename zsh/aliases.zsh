@@ -16,6 +16,7 @@ alias jq="jq -r" # why is this not the default???
 alias grep='grep --color=auto'
 alias pip3="pip3 --isolated"
 alias sed="gsed"
+alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport"
 
 # useful
 alias brewup='brew update && brew upgrade'
