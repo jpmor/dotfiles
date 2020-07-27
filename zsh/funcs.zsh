@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # automatically clones and sets up repos for MC
 # args: org, repo
 setup() {
@@ -44,6 +42,15 @@ hit() {
   fi
 }
 
+# fuzzy find phrases that share files
+both() {
+  y=$(rg -e "$2" --vimgrep -g '!node_modules*' $(rg -e "$1" $3 -l | xargs) | fzf -0 | sed 's/:/ +/' | cut -d ":" -f1)
+  if [ ! -z "$y" ]; then
+    vim $(echo $y)  -c 'normal zz'
+  fi
+}
+
+
 # read through notes by category
 tag() {
   y=$(rg -e ":$1:" --sortr=path --vimgrep $2 $HOME/homewiki/log | sed 's/:/#/3' | fzf -0 -d \# --with-nth 2 | sed 's/:/ +/' | cut -d ":" -f1)
@@ -55,6 +62,10 @@ tag() {
 # open a user's MCA page
 p() {
   open "https://us1.admin.mailchimp.com/peaches2/tools/user-search/direct-search?search-input=$1"
+}
+
+o() {
+  open "https://us14.admin.mailchimp.com/peaches2/tools/user-search/direct-search?search-type=order&search-input=$1"
 }
 
 # show 5 most recent bugsnags to hit the MC project
@@ -98,3 +109,18 @@ updateCtags() {
 openbugs() {
   open "https://app.bugsnag.com/mailchimp-2/mailchimp-1/errors?$(cat $MC/product/mailchimp/.github/CODEOWNERS | grep mone | sed -e 's/ .*//g' -e 's/^\///g' -e 's/\//%2F/g' | awk '{print "&filters[event.file]["NR-1"][type]=eq&filters[event.file]["NR-1"][value]=" $0}' | tr -d '\n')"
 }
+
+hbc() {
+  if (( $# == 0 )) ; then
+    commit=$(tee)
+  else
+    commit=$1
+  fi
+  hub browse -- commit/$commit
+}
+
+# print most used commands
+top_cmds() {
+  fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
+}
+

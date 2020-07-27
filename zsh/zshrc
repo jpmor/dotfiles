@@ -1,22 +1,21 @@
-plugins=(
-  brew
-  #git
-  #docker
-  zsh-autosuggestions
-  zsh-completions
-  zsh-syntax-highlighting
-)
+# $HOME/.zshenv will be sourced first, and for all sessions.
+# For interactive sessions, /etc/zshrc and then this file
+# will also be sourced.
+#
+# Only needed for interactive zsh should be here.
 
 confs=(
-  init # must come first
-  aliases
+  binds # should come first
+  completion
   extra
-  funcs
   git
   hist
-  theme # must come last
+  theme # should come last
 )
 
 for conf ($confs); do
   source "$DOT/zsh/$conf.zsh";
 done
+
+autoload -U compinit
+compinit

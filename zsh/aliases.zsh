@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 # directory jumps
 alias dot="cd $DOT"
 alias hw="cd $HOME/homewiki"
@@ -19,6 +17,8 @@ alias sed="gsed"
 alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport"
 
 # useful
+alias ...='../..'
+alias -- -='cd -'
 alias brewup='brew update && brew upgrade'
 alias path="echo $PATH | tr : '\n'"
 alias t2="tree -L 2"
@@ -31,3 +31,6 @@ alias gd='git diff'
 alias gst='git status'
 alias grv='git remote -vv'
 alias gcb='git checkout -B'
+alias l='ls -lah'
+alias ll='ls -lh'
+alias la='ls -lAh'

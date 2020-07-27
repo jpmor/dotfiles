@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 setopt append_history # Don't overwrite, append!
 setopt hist_expire_dups_first # Expire duplicate entries first when trimming history.
 setopt hist_fcntl_lock # use OS file locking

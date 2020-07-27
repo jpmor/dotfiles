@@ -1,4 +1,5 @@
-#!/usr/bin/env zsh
+autoload -U colors && colors
+setopt prompt_subst
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   p="\$"
@@ -7,7 +8,8 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 local ret_status="%(?:%{$fg_bold[green]%}$p:%{$fg_bold[red]%}$p)"
-PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} $(git_prompt_info)'
+PROMPT="$ret_status %{$fg[cyan]%}%c%{$reset_color%} "
+PROMPT+='$(git_prompt_info)'
 
 typeset -gA ZSH_HIGHLIGHT_STYLES
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
