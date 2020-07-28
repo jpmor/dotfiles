@@ -104,8 +104,8 @@ mcurl() {
 }
 
 # update monolith ctags
-updateCtags() {
-  ctags -a -o .git/tags --options ~/.ctags.cnf .
+update_ctags() {
+  ctags -a -o .git/tags --options=$HOME/.ctags.cnf .
 }
 
 openbugs() {
