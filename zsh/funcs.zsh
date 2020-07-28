@@ -36,7 +36,8 @@ gitsync() {
 
 # fuzzy find phrases and then open that line in vim
 hit() {
-  y=$(rg -e "$1" --vimgrep -g '!node_modules*' $2 | fzf -0 | sed 's/:/ +/' | cut -d ":" -f1)
+  mc_glob_exclusion="$(if [ -d vendor ]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
+  y=$(rg --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $1 $2 | fzf -0 | sed 's/:/ +/' | cut -d ':' -f1)
   if [ ! -z "$y" ]; then
     vim $(echo $y)  -c 'normal zz'
   fi
@@ -44,7 +45,8 @@ hit() {
 
 # fuzzy find phrases that share files
 both() {
-  y=$(rg -e "$2" --vimgrep -g '!node_modules*' $(rg -e "$1" $3 -l | xargs) | fzf -0 | sed 's/:/ +/' | cut -d ":" -f1)
+  mc_glob_exclusion="$(if [ -d vendor ]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
+  y=$(rg --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $2 $(rg -e "$1" $3 -l | xargs) | fzf -0 | sed 's/:/ +/' | cut -d ":" -f1)
   if [ ! -z "$y" ]; then
     vim $(echo $y)  -c 'normal zz'
   fi

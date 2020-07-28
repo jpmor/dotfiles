@@ -12,3 +12,6 @@ setopt long_list_jobs
 
 # Perform implicit tees or cats when multiple redirections are attempted
 setopt multios
+
+# Allows more powerful glob matching
+setopt extended_glob

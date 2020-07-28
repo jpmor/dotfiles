@@ -22,11 +22,13 @@ nmap <silent> <leader>A :ALEToggle<CR>
 nmap <silent> <leader>B :Gblame<CR>
 nmap <silent> <leader>D :NERDTreeFind<CR>
 nmap <silent> <leader>d :NERDTreeToggle<CR>
+"nmap <silent> <leader>f :Rg <C-R><C-W><CR>
+nmap <silent> <leader>f :call RG2("<C-R><C-W>")<CR>
 
 "nmap <silent> <leader>b :e#<CR>
 nmap , %
-nmap <silent> <leader>, :bprevious<cr>
-nmap <silent> <leader>. :bnext<cr>
+nmap <silent> <leader>, :bprevious<CR>
+nmap <silent> <leader>. :bnext<CR>
 nmap <silent> <leader>j :lprev<CR>
 nmap <silent> <leader>k :lnext<CR>
 nmap <silent> <leader>h <C-W><C-H>

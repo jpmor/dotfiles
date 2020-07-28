@@ -21,3 +21,10 @@ function Browse(url)
   exe 'silent !open ' . a:url
   redraw!
 endfunction
+
+function RG2(pattern)
+  let a = "rg --line-number --no-heading --color=always --smart-case -g '!{"
+  let b = system("if [ -d vendor ]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi")
+  let c = "}/**' -- "
+  call fzf#vim#grep(a.b.c. shellescape(a:pattern), 1, fzf#vim#with_preview(), 0)
+endfunction
