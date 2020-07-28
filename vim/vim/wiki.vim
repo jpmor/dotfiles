@@ -35,8 +35,8 @@ hi VimwikiHeaderChar ctermfg=25
 hi VimwikiTag ctermfg=191
 hi VimwikiLink ctermfg=172
 hi VimwikiList ctermfg=30
-hi VimwikiItalic ctermfg=173
-hi VimwikiBold ctermfg=177
+hi VimwikiItalic ctermbg=177 ctermfg=0
+hi VimwikiBold ctermfg=120
 
 hi VimwikiHeader1 ctermfg=81
 hi VimwikiHeader2 ctermfg=204
