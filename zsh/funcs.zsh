@@ -48,7 +48,9 @@ hit() {
   if [ ! -z "$match" ]; then
     file=$(cut -d ':' -f1 <<< "$match")
     line=$(sed -r 's/.*:([0-9]+):[0-9]+:.*/\1/' <<< "$match")
-    vim "$file" "+$line"  -c 'normal zz'
+    col=$(sed -r 's/.*:[0-9]+:([0-9]+):.*/\1/' <<< "$match")
+
+    vim "+normal $line"'G'"$col|" "$file"
   fi
 }
 
