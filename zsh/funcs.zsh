@@ -34,12 +34,21 @@ gitsync() {
     echo {} | sed -En "s/.*\/([a-z]*\/[a-z]*)/\1/p"'
 }
 
+gro() {
+  git reset --hard "origin/$(git branch --show-current)"
+}
+
+
 # fuzzy find phrases and then open that line in vim
 hit() {
   mc_glob_exclusion="$(if [ -d vendor ]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
-  y=$(rg --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $1 $2 | fzf -0 | sed 's/:/ +/' | cut -d ':' -f1)
-  if [ ! -z "$y" ]; then
-    vim $(echo $y)  -c 'normal zz'
+
+  match=$(rg --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $1 $2 | fzf -0)
+
+  if [ ! -z "$match" ]; then
+    file=$(cut -d ':' -f1 <<< "$match")
+    line=$(sed -r 's/.*:([0-9]+):[0-9]+:.*/\1/' <<< "$match")
+    vim "$file" "+$line"  -c 'normal zz'
   fi
 }
 

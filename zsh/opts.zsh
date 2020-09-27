@@ -15,3 +15,8 @@ setopt multios
 
 # Allows more powerful glob matching
 setopt extended_glob
+# But supress errors if that globbing has no match
+setopt NO_NOMATCH
+
+# If a command is issued that can’t be executed as a normal command, and the command is the name of a directory, perform the cd command to that directory.
+setopt AUTO_CD
