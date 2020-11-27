@@ -119,8 +119,20 @@ update_ctags() {
   ctags -a -o .git/tags --options=$HOME/.ctags.cnf .
 }
 
+get_owner_files() {
+  cat $MC/product/mailchimp/.github/CODEOWNERS | grep $1 | sed -e 's/ .*//g' -e 's/^\///g'
+}
+
 openbugs() {
-  open "https://app.bugsnag.com/mailchimp-2/mailchimp-1/errors?$(cat $MC/product/mailchimp/.github/CODEOWNERS | grep mone | sed -e 's/ .*//g' -e 's/^\///g' -e 's/\//%2F/g' | awk '{print "&filters[event.file]["NR-1"][type]=eq&filters[event.file]["NR-1"][value]=" $0}' | tr -d '\n')"
+  url="https://app.bugsnag.com/mailchimp-2/mailchimp-1/errors?"
+  i=0
+  while read file;
+  do
+    file=$(sed -e 's/\//%2F/g' <<< $file)
+    url="${url}&filters[event.file][$i][type]=eq&filters[event.file][$i][value]=$file"
+    ((i++))
+  done
+  open $url
 }
 
 hbc() {
@@ -137,3 +149,25 @@ top_cmds() {
   fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
 
+merges() {
+  # Get all the merge commits that match the criteria.
+  merge_shas=$(git --no-pager log --merges -m --first-parent --format=format:%H $@)
+
+  if [ -z "$merge_shas" ]; then return 0; fi
+  echo
+
+  # Print useful info about each merge commit.
+  while read sha;
+  do
+    # Print an overview of the commit.
+    git --no-pager show --quiet --pretty="%C(red)%h %C(yellow)%ad %C(cyan)%an %n %C(magenta)%b %C(white)" $sha
+    # Print the PR url (if it exists, we used to push directly).
+    pr=$(git show --format=%B $sha | grep -ohE '#\d*')
+    if [[ $pr ]]; then
+      echo " https://git.rsglab.com/product/mailchimp/pull/${pr:1}\n"
+    fi
+    # Print the diff of the total merge.
+    git --no-pager diff --stat $sha^ $sha;
+    echo
+  done <<< $merge_shas
+}
