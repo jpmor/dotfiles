@@ -1,19 +1,19 @@
 " vimscript functions
 
 function Line()
-  let u = substitute(expand('%:p:f'), '/go/src/git.rsglab.com', '', '')
+  let u = substitute(expand('%:p:f'), '/go/src/' . $GITHUB_HOST, '', '')
   let u = substitute(u, $MC, '', '')
   let u = substitute(u, '/[a-z\-0-9]*/[a-z\-0-9]*/', '\0tree/master/', '')
-  let u = substitute(u . '\#L' . line('.'), '^', 'https://git.rsglab.com', '')
+  let u = substitute(u . '\#L' . line('.'), '^', 'https://' . $GITHUB_HOST, '')
   call Browse(u)
 endfunction
 
 function Blame()
   let path = expand('%:p:f')
-  let path = substitute(path, '/go/src/git.rsglab.com', '', '')
+  let path = substitute(path, '/go/src/' . $GITHUB_HOST, '', '')
   let orgrepo = substitute(path, $MC . '\(/[a-z\-0-9]*/[a-z\-0-9]*/\).*', '\1', '')
   let cmd = substitute("git blame -L LINE,LINE ", 'LINE', line('.'), 'g') . path . " | awk '{print $1}'"
-  let url = "https://git.rsglab.com" . orgrepo . "commit/" . system(cmd)
+  let url = "https://" . $GITHUB_HOST . orgrepo . "commit/" . system(cmd)
   call Browse(url)
 endfunction
 

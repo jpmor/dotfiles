@@ -6,8 +6,8 @@ export LESS_TERMCAP_md=$'\e[1;32m'
 
 export DOT="$HOME/.dot"
 export MC="/Volumes/CaseSensitive/mc"
-export MCGO="$MC/go/src/git.rsglab.com"
 export GITHUB_HOST="git.rsglab.com"
+export MCGO="$MC/go/src/$GITHUB_HOST"
 export SITE="https://jpmor.net"
 
 export RBENV_ROOT="$HOME/.rbenv"

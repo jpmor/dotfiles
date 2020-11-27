@@ -1,15 +1,15 @@
 # automatically clones and sets up repos for MC
 # args: org, repo
 setup() {
-  ghe_api_url="https://git.rsglab.com/api/v3/repos/$1/$2/forks"
+  ghe_api_url="https://$GITHUB_HOST/api/v3/repos/$1/$2/forks"
   curl -o /dev/null -su "$USER:$(cat ~/.ghe)" -X POST $ghe_api_url # make a fork
   sleep 10 # wait cuz forking is async
 
-  origin_url=git@git.rsglab.com:$USER/$2.git
+  origin_url=git@$GITHUB_HOST:$USER/$2.git
   mkdir -p $MC/$1
   git clone $origin_url $MC/$1/$2; # clone fork as origin
 
-  upstream_url=git@git.rsglab.com:$1/$2.git
+  upstream_url=git@$GITHUB_HOST:$1/$2.git
   git -C $MC/$1/$2 remote add upstream $upstream_url # add upstream as upstream
   echo
   echo "******** REMOTES: ********"
@@ -164,7 +164,7 @@ merges() {
     # Print the PR url (if it exists, we used to push directly).
     pr=$(git show --format=%B $sha | grep -ohE '#\d*')
     if [[ $pr ]]; then
-      echo " https://git.rsglab.com/product/mailchimp/pull/${pr:1}\n"
+      echo " https://$GITHUB_HOST/product/mailchimp/pull/${pr:1}\n"
     fi
     # Print the diff of the total merge.
     git --no-pager diff --stat $sha^ $sha;

@@ -6,7 +6,7 @@
   editor = vim
   pager = diff-so-fancy | less --tabs=4 -RFX
 [hub]
-  host = git.rsglab.com
+  host = $GITHUB_HOST
 [alias]
   lg = log --all -n 30 --graph --pretty=format:'%C(yellow)%h%C(auto)%d%C(white) %s %C(dim bold cyan)%cr'
 [color]
