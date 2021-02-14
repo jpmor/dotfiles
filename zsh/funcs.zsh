@@ -43,7 +43,7 @@ gro() {
 hit() {
   mc_glob_exclusion="$(if [ -d vendor ]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
 
-  match=$(rg --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $1 $2 | fzf -0)
+  match=$(rg --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $@ | fzf -0)
 
   if [ ! -z "$match" ]; then
     file=$(cut -d ':' -f1 <<< "$match")
@@ -133,7 +133,7 @@ update_ctags() {
 }
 
 get_owner_files() {
-  cat $MC/product/mailchimp/.github/CODEOWNERS | grep $1 | sed -e 's/ .*//g' -e 's/^\///g'
+  cat $MC/product/mailchimp/.github/CODEOWNERS | grep $@ | sed -e 's/ .*//g' -e 's/^\///g'
 }
 
 openbugs() {
@@ -152,7 +152,7 @@ hbc() {
   if (( $# == 0 )) ; then
     commit=$(tee)
   else
-    commit=$1
+    commit=$@
   fi
   hub browse -- commit/$commit
 }
