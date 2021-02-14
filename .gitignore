@@ -1,4 +1,3 @@
+vim/vim/autoload/*
 vim/vim/plug
-plugins
 vim/vim/.netrwhist
-vim/vim/autoload/plug.vim.old
