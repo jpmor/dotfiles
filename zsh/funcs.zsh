@@ -23,10 +23,10 @@ setup() {
 gitsync() {
   find "$MC" "$MCGO" -d 2 -maxdepth 2 -type d | parallel \
     'if [ ! -d {}/.git ]; then exit; fi
-    if [ -z "$(git -C {} diff upstream/master)" ]
+    head_branch=$(git -C {} remote show upstream | sed -n "s/  HEAD branch: \(\w\)/\1/p")
+    if [ -z "$(git -C {} diff upstream/$head_branch)" ]
     then
-      git -C "{}" pull --quiet upstream master
-      git -C "{}" push --quiet origin master
+      git -C "{}" pull --quiet upstream $head_branch
       printf "✅ "
     else
       printf "❗️ "
@@ -184,4 +184,9 @@ merges() {
     git --no-pager diff --stat $sha^ $sha;
     echo
   done <<< $merge_shas
+}
+
+# pull down PR on branch "tmp"
+getpr() {
+  git fetch --force upstream pull/$1/head:tmp; git reset --hard tmp
 }
