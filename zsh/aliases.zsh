@@ -25,6 +25,7 @@ alias brewup='brew update && brew upgrade'
 alias path="echo $PATH | tr : '\n'"
 alias t2="tree -L 2"
 alias tags='rg -e ":[a-z]*:" -o -N --no-filename $HOME/homewiki/log | sort | uniq -c'
+alias today='vim $(find $HOME/homewiki/log/*$(date "+-%m-%d").md)'
 
 # shortcuts
 alias k='kubectl'
