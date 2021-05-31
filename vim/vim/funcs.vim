@@ -1,9 +1,12 @@
 " vimscript functions
 
 function Line()
+
+  let remote_head = system('git remote show upstream | sed -n "s/  HEAD branch: \(\w\)/\1/p"') . '/'
+  let remote_head = substitute(remote_head, '\n', '', '') " Strip the newline sed adds
   let u = substitute(expand('%:p:f'), '/go/src/' . $GITHUB_HOST, '', '')
   let u = substitute(u, $MC, '', '')
-  let u = substitute(u, '/[a-z\-0-9]*/[a-z\-0-9]*/', '\0tree/master/', '')
+  let u = substitute(u, '/[a-z\-0-9]*/[a-z\-0-9]*/', '\0tree/' . remote_head, '')
   let u = substitute(u . '\#L' . line('.'), '^', 'https://' . $GITHUB_HOST, '')
   call Browse(u)
 endfunction
