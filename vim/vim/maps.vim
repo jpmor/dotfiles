@@ -19,7 +19,7 @@ nmap <silent> <leader>z :e $DOT/zsh/zshenv<CR>
 " plugins
 "nmap <silent> <leader>F :GFiles<CR>
 nmap <silent> <leader>A :ALEToggle<CR>
-nmap <silent> <leader>B :Gblame<CR>
+nmap <silent> <leader>B :Git blame<CR>
 nmap <silent> <leader>D :NERDTreeFind<CR>
 nmap <silent> <leader>d :NERDTreeToggle<CR>
 "nmap <silent> <leader>f :Rg <C-R><C-W><CR>
