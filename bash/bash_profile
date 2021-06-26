@@ -1,0 +1,14 @@
+#
+# ~/.bash_profile
+#
+
+# Had issues booting with zsh as the default shell, so
+# leaving it set to bash.
+
+# If we have a display set for X and a terminal, then
+# start by initializing an X session.
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  startx
+fi
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc

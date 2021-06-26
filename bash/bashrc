@@ -1,0 +1,15 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Default to using color with ls.
+alias ls='ls --color=auto'
+# Configures bash shell prompt.
+PS1='[\u@\h \W]\$ '
+
+# Never actually use bash though, immediately
+# switch to zsh.
+exec zsh
