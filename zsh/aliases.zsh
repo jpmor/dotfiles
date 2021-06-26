@@ -34,6 +34,7 @@ alias gd='git diff'
 alias gst='git status'
 alias grv='git remote -vv'
 alias gcb='git checkout -B'
+alias glg="git log --all --graph --pretty=format:'%C(yellow)%h%C(auto)%d%C(white) %s %C(dim bold cyan)%cr'"
 alias l='ls -lah'
 alias ll='ls -lh'
 alias la='ls -lAh'
