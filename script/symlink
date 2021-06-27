@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# zsh
+ln -s -f ~/.dot/zsh/zshrc ~/.zshrc
+ln -s -f ~/.dot/zsh/zshenv ~/.zshenv
+# vim
+ln -s -f ~/.dot/vim/vimrc ~/.vimrc
+rm -f ~/.vim # silly, ln can't overwrite directory symlinks
+ln -s -f ~/.dot/vim/vim ~/.vim
+# git
+ln -s -f ~/.dot/etc/gitconfig ~/.gitconfig
+ln -s -f ~/.dot/etc/gitignore ~/.gitignore
+
+ln -s -f ~/.dot/etc/ctags ~/.ctags.cnf
