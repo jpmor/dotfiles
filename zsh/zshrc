@@ -2,7 +2,7 @@
 # For interactive sessions, /etc/zshrc and then this file
 # will also be sourced.
 #
-# Only needed for interactive zsh should be here.
+# Only things needed for interactive zsh should be here.
 
 confs=(
   binds # should come first
