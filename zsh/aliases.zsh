@@ -1,6 +1,7 @@
 # directory jumps
 alias dot='cd $DOT'
 alias hw='cd $HOME/homewiki'
+alias hr='cd $HOME/side/homerun'
 alias sw='cd $HOME/side/site'
 alias mc='cd $MC'
 alias mcgo='cd $MCGO'
@@ -22,7 +23,7 @@ fi
 alias ...='../..'
 alias -- -='cd -'
 alias brewup='brew update && brew upgrade'
-alias path='echo $PATH | tr : "\n"'
+alias getpath='echo $PATH | tr : "\n"'
 alias t2='tree -L 2'
 alias tags='rg -e ":[a-z]*:" -o -N --no-filename $HOME/homewiki/log | sort | uniq -c'
 alias today='vim $(find $HOME/homewiki/log/*$(date "+-%m-%d").md)'

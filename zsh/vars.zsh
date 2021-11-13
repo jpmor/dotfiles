@@ -22,5 +22,18 @@ export GCP_GARBAGE="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk
 
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-PATH+=:$RBENV_ROOT/bin:$GOPATH/bin:$HOME/.cargo/bin:$DOT/bin:/usr/local/sbin:$GCP_GARBAGE/bin:
-#typeset -U PATH
+path=(
+  $RBENV_ROOT/bin
+  $GOPATH/bin
+  $HOME/.cargo/bin
+  $DOT/bin
+  #/usr/local/sbin
+  $GCP_GARBAGE/bin
+  $path
+)
+
+# Setup brew vars, including adding brew bin to path
+eval $(/opt/homebrew/bin/brew shellenv)
+
+# For arrays, keep only the first occurrence of each duplicated value.
+typeset -U path
