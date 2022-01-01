@@ -33,7 +33,11 @@ path=(
 )
 
 # Setup brew vars, including adding brew bin to path
-eval $(/opt/homebrew/bin/brew shellenv)
+if [ -f /opt/homebrew/bin/brew ]; then
+  eval $(/opt/homebrew/bin/brew shellenv) # apple silicon
+elif [ -f /usr/local/bin/brew ]; then
+  eval $(/usr/local/bin/brew shellenv)
+fi
 
 # For arrays, keep only the first occurrence of each duplicated value.
 typeset -U path
