@@ -22,7 +22,7 @@ function Blame()
 endfunction
 
 function Browse(url)
-  exe 'silent !open ' . a:url
+  exe 'silent !open "' . a:url . '"'
   redraw!
 endfunction
 

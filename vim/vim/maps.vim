@@ -1,6 +1,6 @@
 " mappings
+noremap <SPACE> <Nop>
 let mapleader = ' '
-
 
 " inv toggles
 nmap <silent> <leader>/ :set invhls<CR>
@@ -43,4 +43,4 @@ nmap <silent> <leader>b V:s/\.[ ]*/.\r\r/g<CR>d2d
 nmap <silent> <leader>gf :call Line()<CR>
 nmap <silent> <leader>gh :call Blame()<CR>
 nmap <silent> <leader>4 :call Browse("https://finviz.com/quote.ashx?t=<cword>")<CR>
-nmap <silent> <leader>w :call Browse("https://en.wikipedia.org/wiki/<cword>")<CR>
+map <silent> <leader>w y:call Browse("https://en.wikipedia.org/wiki/<C-r>"")<CR>
