@@ -96,6 +96,7 @@ call plug#begin('~/.vim/plug')
   Plug 'fatih/vim-go'
   Plug 'rust-lang/rust.vim'
   Plug 'godlygeek/csapprox'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}

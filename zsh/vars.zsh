@@ -27,7 +27,7 @@ path=(
   $GOPATH/bin
   $HOME/.cargo/bin
   $DOT/bin
-  #/usr/local/sbin
+  /usr/local/bin # needed for docker
   $GCP_GARBAGE/bin
   $path
 )
