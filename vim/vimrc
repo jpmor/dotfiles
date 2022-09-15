@@ -99,12 +99,13 @@ call plug#begin('~/.vim/plug')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'scrooloose/nerdtree'
   Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale'
-  Plug '~/side/vimwiki' " not possible to override g:vimwiki_global_vars.web_schemes1 and I wanted that
-  "Plug 'vimwiki/vimwiki'
+  "Plug '~/side/vimwiki'
+  Plug 'vimwiki/vimwiki'
+  Plug 'hashivim/vim-terraform'
 call plug#end()
 
 filetype indent off

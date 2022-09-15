@@ -22,7 +22,7 @@ fi
 # useful
 alias ...='../..'
 alias -- -='cd -'
-alias brewup='brew update && brew upgrade'
+alias brewup='brew update; brew upgrade'
 alias getpath='echo $PATH | tr : "\n"'
 alias t2='tree -L 2'
 alias tags='rg -e ":[a-z]*:" -o -N --no-filename $HOME/homewiki/log | sort | uniq -c'

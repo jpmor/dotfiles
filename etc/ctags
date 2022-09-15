@@ -9,7 +9,7 @@
 --exclude=data/dojo/*
 --exclude=db/*
 --exclude=log/*
---exclude=node_modules/*
+--exclude=*node_modules*
 --exclude=web-config/*
 --languages=php
 --langmap=php:.engine.inc.module.theme.install.php
