@@ -16,7 +16,7 @@ function Blame()
   let path = expand('%:p:f')
   let path = substitute(path, '/go/src/' . $GITHUB_HOST, '', '')
   let orgrepo = substitute(path, $MC . '\(/[a-z\-0-9]*/[a-z\-0-9]*/\).*', '\1', '')
-  let cmd = substitute("git blame -L LINE,LINE ", 'LINE', line('.'), 'g') . path . " | awk '{print $1}'"
+  let cmd = substitute("git blame -L LINE,LINE ", 'LINE', line('.'), 'g') . path . " | awk '{printf $1}'"
   let url = "https://" . $GITHUB_HOST . orgrepo . "commit/" . system(cmd)
   call Browse(url)
 endfunction
