@@ -5,8 +5,9 @@ alias hr='cd $HOME/side/homerun'
 alias sw='cd $HOME/side/site'
 alias mc='cd $MC'
 alias mcgo='cd $MCGO'
-alias op='cd $MC/ops/puppet-modules'
+alias op='cd $MC/ops/pantropy'
 alias pm='cd $MC/product/mailchimp'
+alias hi='cd $MC/rsg/http-interposer'
 alias rsg='cd $MC/rsg/'
 
 # adjustments
