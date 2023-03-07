@@ -8,7 +8,9 @@ export DOT="$HOME/.dot"
 export MC="/Volumes/CaseSensitive/mc"
 export GITHUB_HOST="git.rsglab.com"
 export MCGO="$MC/go/src/$GITHUB_HOST"
-export SITE="https://jpmor.net"
+export SITE="https://jpmor.com"
+export HW="$HOME/homewiki"
+
 
 export RBENV_ROOT="$HOME/.rbenv"
 export GOPATH="/Volumes/CaseSensitive/mc/go"

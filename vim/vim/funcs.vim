@@ -38,6 +38,6 @@ endfunction
 function Quote()
   let line = getline('.')
   let untagged_line = substitute(line, ' :[a-z:]*$', '', '')
-  let relative_path = expand('%:f')
+  let relative_path = substitute(expand('%'), $HW, '', '')
   let @* = '[' . untagged_line . '](' . relative_path . ')'
 endfunction

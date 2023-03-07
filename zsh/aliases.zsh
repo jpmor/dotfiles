@@ -1,42 +1,42 @@
 # directory jumps
-alias dot='cd $DOT'
-alias hw='cd $HOME/homewiki'
-alias hr='cd $HOME/side/homerun'
-alias sw='cd $HOME/side/site'
-alias mc='cd $MC'
-alias mcgo='cd $MCGO'
-alias op='cd $MC/ops/pantropy'
-alias pm='cd $MC/product/mailchimp'
-alias hi='cd $MC/rsg/http-interposer'
-alias rsg='cd $MC/rsg/'
+alias dot="cd $DOT"
+alias hw="cd $HW"
+alias hr="cd $HOME/side/homerun"
+alias sw="cd $HOME/side/site"
+alias mc="cd $MC"
+alias mcgo="cd $MCGO"
+alias op="cd $MC/ops/pantropy"
+alias pm="cd $MC/product/mailchimp"
+alias hi="cd $MC/rsg/http-interposer"
+alias rsg="cd $MC/rsg/"
 
 # adjustments
-alias ls='exa'
-alias jq='jq -r' # why is this not the default???
-alias grep='grep --color=auto'
-alias pip3='pip3 --isolated'
+alias ls="exa"
+alias jq="jq -r" # why is this not the default???
+alias grep="grep --color=auto"
+alias pip3="pip3 --isolated"
 if [[ "$OSTYPE" == "darwin"* ]]; then
-  alias sed='gsed'
-  alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
+  alias sed="gsed"
+  alias airport="/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport"
 fi
 
 # useful
-alias ...='../..'
-alias -- -='cd -'
-alias brewup='brew update; brew upgrade'
-alias getpath='echo $PATH | tr : "\n"'
-alias t2='tree -L 2'
-alias tags='rg -e ":[a-z]*:" -o -N --no-filename $HOME/homewiki/log | sort | uniq -c'
-alias today='vim $(find $HOME/homewiki/log/*$(date "+-%m-%d").md)'
+alias ...="../.."
+alias -- -="cd -"
+alias brewup="brew update; brew upgrade"
+alias getpath="echo $PATH | tr : '\n'"
+alias t2="tree -L 2"
+alias tags="rg -e ':[a-z]*:' -o -N --no-filename $HW/log | sort | uniq -c"
+alias today="vim $(find $HW/log/*$(date "+-%m-%d").md)"
 
 # shortcuts
-alias k='kubectl'
-alias gcm='git commit -m'
-alias gd='git diff'
-alias gst='git status'
-alias grv='git remote -vv'
-alias gcb='git checkout -B'
-alias glg='git log --all --graph --pretty=format:"%C(yellow)%h%C(auto)%d%C(white) %s %C(dim bold cyan)%cr"'
-alias l='ls -lah'
-alias ll='ls -lh'
-alias la='ls -lAh'
+alias k="kubectl"
+alias gcm="git commit -m"
+alias gd="git diff"
+alias gst="git status"
+alias grv="git remote -vv"
+alias gcb="git checkout -B"
+alias glg="git log --all --graph --pretty=format:'%C(yellow)%h%C(auto)%d%C(white) %s %C(dim bold cyan)%cr'"
+alias l="ls -lah"
+alias ll="ls -lh"
+alias la="ls -lAh"

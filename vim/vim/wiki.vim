@@ -5,7 +5,7 @@ let g:vimwiki_markdown_link_ext = 1
 
 let home = {}
 let home.name = 'home'
-let home.path = '~/homewiki/'
+let home.path = $HW
 let home.syntax = 'markdown'
 let home.ext = '.md'
 let home.diary_rel_path = 'log/'
