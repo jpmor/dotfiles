@@ -17,6 +17,7 @@ export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-che
 
 # Why is this a Cask?
 export GCP_GARBAGE="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
