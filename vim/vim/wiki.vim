@@ -12,12 +12,6 @@ let home.diary_rel_path = 'log'
 let home.diary_index = 'log'
 let home.diary_header = 'Log'
 
-let mc = {}
-let mc.name = 'mc'
-let mc.path = '~/mc/rsg/mcwiki'
-let mc.syntax = 'markdown'
-let mc.ext = '.md'
-
 let site = {}
 let site.name = 'site'
 let site.path = '~/side/site/sitewiki/'
@@ -30,7 +24,7 @@ let site.template_path = '~/side/site/static/'
 let site.template_default = 'template'
 let site.template_ext = ''
 
-let g:vimwiki_list = [home, site, mc]
+let g:vimwiki_list = [home, site]
 
 " https://ss64.com/bash/syntax-colors.html
 hi VimwikiCellSeparator ctermfg=25

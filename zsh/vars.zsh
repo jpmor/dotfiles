@@ -7,6 +7,10 @@ export LESS_TERMCAP_md=$'\e[1;32m'
 export DOT="$HOME/.dot"
 export SITE="https://jpmor.com"
 export HW="$HOME/homewiki"
+export MC="/Volumes/CaseSensitive/mc"
+export IMC="/Volumes/CaseSensitive/imc"
+export GITHUB_HOST="git.rsglab.com"
+export MCGO="$MC/go/src/$GITHUB_HOST"
 
 
 export RBENV_ROOT="$HOME/.rbenv"
@@ -16,7 +20,6 @@ export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
 export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key"
 
 # Why is this a Cask?
-export GCP_GARBAGE="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk"
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -27,7 +30,6 @@ path=(
   $HOME/.cargo/bin
   $DOT/bin
   /usr/local/bin # needed for docker
-  $GCP_GARBAGE/bin
   $path
 )
 

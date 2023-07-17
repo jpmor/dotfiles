@@ -2,13 +2,18 @@
 
 function Line()
   " these lines check the prod branch name, but are slower
-  "let remote_head = system('git remote show upstream | sed -n "s/  HEAD branch: \(\w\)/\1/p"') . '/'
-  "let remote_head = substitute(remote_head, '\n', '', '') " Strip the newline sed adds
-  let remote_head = "main/"
+  let remote_head = system('git remote show origin | sed -n "s/  HEAD branch: \(\w\)/\1/p" | tr -d "\n"') . '/'
+  "let remote_head = "main/"
+  "strip gopath for mcgo repos
   let u = substitute(expand('%:p:f'), '/go/src/' . $GITHUB_HOST, '', '')
+  "strip dirs preceding org dir
   let u = substitute(u, $MC, '', '')
+  let u = substitute(u, $IMC, '', '')
+  "format with github uri path
   let u = substitute(u, '/[a-z\-0-9]*/[a-z\-0-9]*/', '\0tree/' . remote_head, '')
-  let u = substitute(u . '\#L' . line('.'), '^', 'https://' . $GITHUB_HOST, '')
+  "add line number and hostname
+  let host = system('cat ../../.host | tr -d "\n"')
+  let u = substitute(u . '\#L' . line('.'), '^', 'https://' . host, '')
   call Browse(u)
 endfunction
 

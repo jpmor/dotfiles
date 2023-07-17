@@ -21,7 +21,7 @@ setup() {
 
 # pulls in updates for all my MC repos
 gitsync() {
-  find "$MC" "$MCGO" -d 2 -maxdepth 2 -type d | parallel \
+  find "$MC" "$MCGO" "$IMC" -d 2 -maxdepth 2 -type d | parallel \
     'if [ ! -d {}/.git ]; then exit; fi
     head_branch=$(git -C {} remote show origin | sed -n "s/  HEAD branch: \(\w\)/\1/p")
     if [ -z "$(git -C {} diff origin/$head_branch)" ]
@@ -31,7 +31,7 @@ gitsync() {
     else
       printf "❗️ "
     fi
-    echo {} | sed -En "s/.*\/([a-z]*\/[a-z]*)/\1/p"'
+    echo {} | sed -En "s/.*\/([a-z\-]*\/[a-z]*)/\1/p"'
 }
 
 gro() {
@@ -49,7 +49,7 @@ hit() {
   #match=$(rg --vimgrep $@ | fzf -0)
   mc_glob_exclusion="$(if [[ $PWD = $MC/product/mailchimp ]]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
 
-  match=$(rg --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $@ | fzf -0)
+  match=$(rg --hidden --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $@ | fzf -0)
 
   if [ ! -z "$match" ]; then
     file=$(cut -d ':' -f1 <<< "$match")

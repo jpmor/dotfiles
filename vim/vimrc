@@ -122,6 +122,6 @@ call plug#end()
 filetype indent off
 
 " sourcing
-for f in ["maps","funcs", "mc", "wiki"]
+for f in ["maps","funcs", "mc"]
   exec "so $HOME/.vim/".f.".vim"
 endfor
