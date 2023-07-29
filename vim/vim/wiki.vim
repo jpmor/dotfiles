@@ -8,7 +8,7 @@ let home.name = 'home'
 let home.path = $HW
 let home.syntax = 'markdown'
 let home.ext = '.md'
-let home.diary_rel_path = 'log/'
+let home.diary_rel_path = 'log'
 let home.diary_index = 'log'
 let home.diary_header = 'Log'
 

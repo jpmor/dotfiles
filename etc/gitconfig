@@ -1,6 +1,6 @@
 [user]
 	name = James Moriarty
-	email = james.moriarty@mailchimp.com
+	email = james@moriartys.co
 [core]
   excludesfile = ~/.gitignore
   editor = vim
