@@ -75,7 +75,7 @@ tag() {
 
 # prints a list of markdown hyper links to every instance of a tag
 mdtag() {
-  tags=$(rg -e ":$1:" $HW | grep -v 'outdated' | grep -v 'done' | sort | sed -e "s/^.*log\///g")
+  tags=$(rg -e ":$1:" $HW | grep -v 'outdated' | grep -v 'done' | sort -r | sed -e "s/^.*log\///g")
 
   last_reviewed=$(jq '.'"$1"' // ""' "$HW/review.json")
 
@@ -85,7 +85,13 @@ mdtag() {
     date=$(echo $tag | awk -F '.md:' '{print $1}')
     line=$(echo $tag | awk -F '.md:' '{print $2}' | sed -e 's/\s[:a-z]\+$//g')
     if [[ $date > $last_reviewed ]]; then
-      echo "- [$line](log/$date.md)"
+      # use a different bullet for golden entries
+      if [[ $tag == *":golden:"* ]]; then
+        bullet="*"
+      else
+        bullet="-"
+      fi
+      echo "$bullet [$line](log/$date.md)"
     fi
   done <<< $tags
 }
