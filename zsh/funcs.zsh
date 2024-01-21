@@ -53,16 +53,6 @@ hit() {
   fi
 }
 
-# fuzzy find phrases that share files
-both() {
-  mc_glob_exclusion="$(if [ -d vendor ]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
-  y=$(rg --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $2 $(rg -e "$1" $3 -l | xargs) | fzf -0 | sed 's/:/ +/' | cut -d ":" -f1)
-  if [ ! -z "$y" ]; then
-    sh -c "vim $y -c 'normal zz'"
-  fi
-}
-
-
 # read through notes by category
 tag() {
   y=$(rg -e ":$1:" --sortr=path --vimgrep $2 $HW/log | sed 's/:/#/3' | fzf -0 -d \# --with-nth 2 | sed 's/:/ +/' | cut -d ":" -f1)
