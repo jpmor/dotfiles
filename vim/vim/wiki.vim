@@ -32,9 +32,11 @@ let site.template_ext = ''
 
 let g:vimwiki_list = [home, site, mc]
 
+" https://ss64.com/bash/syntax-colors.html
 hi VimwikiCellSeparator ctermfg=25
 hi VimwikiHeaderChar ctermfg=25
 hi VimwikiTag ctermfg=191
+hi VimwikiTag ctermfg=24
 hi VimwikiLink ctermfg=172
 hi VimwikiList ctermfg=30
 hi VimwikiItalic ctermfg=219
