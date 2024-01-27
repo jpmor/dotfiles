@@ -12,3 +12,5 @@ ln -s -f ~/.dot/etc/gitconfig ~/.gitconfig
 ln -s -f ~/.dot/etc/gitignore ~/.gitignore
 
 ln -s -f ~/.dot/etc/ctags ~/.ctags.cnf
+ln -s -f ~/.dot/etc/aspell.en.pws ~/.aspell.en.pws
+ln -s -f ~/.dot/etc/aspell.en.prepl ~/.aspell.en.prepl
