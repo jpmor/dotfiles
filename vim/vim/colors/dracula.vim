@@ -1,16 +1,3 @@
-" Dracula Theme v1.2.7
-"
-" https://github.com/zenorocha/dracula-theme
-"
-" Copyright 2016, All rights reserved
-"
-" Code licensed under the MIT license
-" http://zenorocha.mit-license.org
-"
-" @author Trevor Heins <@heinst>
-" @author Éverton Ribeiro <nuxlli@gmail.com>
-" @author Zeno Rocha <hi@zenorocha.com>
-
 set background=dark
 highlight clear
 
@@ -161,19 +148,5 @@ hi markdownLinkTextDelimiter ctermfg=215 ctermbg=NONE cterm=NONE guifg=#ffb86c g
 hi markdownHeadingDelimiter ctermfg=117 ctermbg=NONE cterm=bold guifg=#8be9fd guibg=NONE gui=bold"
 hi markdownUrl ctermfg=141 ctermbg=NONE cterm=NONE guifg=#bd93f9 guibg=NONE gui=NONE
 hi markdownUrlTitleDelimiter ctermfg=84 ctermbg=NONE cterm=NONE guifg=#50fa7b guibg=NONE gui=NONE
-" }}}
-
-
-"
-"cygwin has an annoying behavior where it resets background to light
-"regardless of what is set above, so we force it yet again
-"
-"add these to get cygwin shell working when used to ssh into a centos6 vm
-"this requires your TERM=xterm-256color in the guest vm
-"- one way to do this is to append to /home/vagrant/.bash_profile ala:
-"      TERM=xterm-256color
-"      export $TERM
 
 execute "set background=dark"
-"-------------------
-

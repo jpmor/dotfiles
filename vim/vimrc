@@ -38,6 +38,9 @@ set wildmenu		" display completion matches in a status line
 set ttimeout		" time out for key codes
 set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 
+" vim bug, :terminal doesn't restore cursor. have to explicitly set
+set t_SH=4
+
 " Show @@@ in the last line if it is truncated.
 set display=truncate
 
