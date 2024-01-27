@@ -39,7 +39,7 @@ nmap <silent> <leader>l <C-W><C-L>
 " other
 nmap <silent> <leader>p :let @+ = join([expand('%'),  line(".")], ':')<CR>
 nmap <silent> <leader>b V:s/\.[ ]*/.\r\r/g<CR>d2d
-nmap <silent> <leader>n :.,$sort<bar>.,$sort! ur /\d\{4}-\d\{2}-\d\{2}/<CR>
+nmap <silent> <leader>n :.,$sort! ur /.\{4\}\]/<bar>.,$sort! ur /\d\{4}-\d\{2}-\d\{2}/<CR>
 
 nmap <silent> <leader>gf :call Line()<CR>
 nmap <silent> <leader>gh :call Blame()<CR>
