@@ -11,7 +11,7 @@ export MC="/Volumes/CaseSensitive/mc"
 export IMC="/Volumes/CaseSensitive/imc"
 export GITHUB_HOST="git.rsglab.com"
 export MCGO="$MC/go/src/$GITHUB_HOST"
-
+export KUBECONFIG="$HOME/.config/iksm/combo"
 
 export RBENV_ROOT="$HOME/.rbenv"
 export GOPATH="$HOME/side/go"
