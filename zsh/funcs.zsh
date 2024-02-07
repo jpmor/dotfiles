@@ -41,7 +41,7 @@ gro() {
 
 # pull down PR on branch "tmp"
 getpr() {
-  git fetch --force origin pull/$1/head:tmp; git reset --hard tmp
+  git fetch --force origin pull/$1/head:tmpbranch; git reset --hard tmpbranch
 }
 
 # fuzzy find phrases and then open that line in vim

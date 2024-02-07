@@ -1,28 +1,32 @@
 " vimscript functions
+function RemoteHead()
+  return '/' . system('git config --get init.defaultbranch | tr -d "\n"')
+endfunction
 
 function Line()
-  " these lines check the prod branch name, but are slower
-  let remote_head = system('git remote show origin | sed -n "s/  HEAD branch: \(\w\)/\1/p" | tr -d "\n"') . '/'
-  "let remote_head = "main/"
-  "strip gopath for mcgo repos
-  let u = substitute(expand('%:p:f'), '/go/src/' . $GITHUB_HOST, '', '')
+  let filepath = substitute(expand('%:p:f'), system('git rev-parse --show-toplevel | tr -d "\n"'), '', '')
   "strip dirs preceding org dir
-  let u = substitute(u, $MC, '', '')
-  let u = substitute(u, $IMC, '', '')
+  let filepath = substitute(filepath, $MC, '', '')
+  let filepath = substitute(filepath, $IMC, '', '')
   "format with github uri path
-  let u = substitute(u, '/[a-z\-0-9]*/[a-z\-0-9]*/', '\0tree/' . remote_head, '')
+  let origin = system('git config --local --get remote.origin.url | sed -n "s/.git$//p" | tr -d "\n"')
+  "let url = substitute(filepath, '/[a-z\-0-9]*/[a-z\-0-9]*/', '\0tree/' . remote_head, '')
   "add line number and hostname
-  let host = system('cat ../../.host | tr -d "\n"')
-  let u = substitute(u . '\#L' . line('.'), '^', 'https://' . host, '')
-  call Browse(u)
+  let url = origin . '/blob' . RemoteHead() . filepath . '\#L' . line('.')
+  call Browse(url)
 endfunction
 
 function Blame()
-  let path = expand('%:p:f')
-  let path = substitute(path, '/go/src/' . $GITHUB_HOST, '', '')
-  let orgrepo = substitute(path, $MC . '\(/[a-z\-0-9]*/[a-z\-0-9]*/\).*', '\1', '')
-  let cmd = substitute("git blame -L LINE,LINE ", 'LINE', line('.'), 'g') . path . " | awk '{printf $1}'"
-  let url = "https://" . $GITHUB_HOST . orgrepo . "commit/" . system(cmd)
+  let filepath = substitute(expand('%:p:f'), system('git rev-parse --show-toplevel | tr -d "\n"'), '', '')
+  "strip dirs preceding org dir
+  let filepath = substitute(filepath, $MC, '', '')
+  let filepath = substitute(filepath, $IMC, '', '')
+  "strip leading slash
+  let filepath = substitute(filepath, '^/', '', '')
+  "format with github uri path
+  let origin = system('git config --local --get remote.origin.url | sed -n "s/.git$//p" | tr -d "\n"')
+  let cmd = substitute("git blame -L LINE,LINE ", 'LINE', line('.'), 'g') . filepath . " | awk '{printf $1}'"
+  let url = origin . '/commit/' . system(cmd)
   call Browse(url)
 endfunction
 

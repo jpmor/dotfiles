@@ -30,3 +30,5 @@
 	whitespace = red reverse
 [log]
 	date = local
+[init]
+	defaultbranch = master
