@@ -7,15 +7,15 @@
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 " Avoid side effects when it was already reset.
-if &compatible
-  set nocompatible
-endif
-
-" When the +eval feature is missing, the set command above will be skipped.
-" Use a trick to reset compatible only when the +eval feature is missing.
-silent! while 0
-  set nocompatible
-silent! endwhile
+"if &compatible
+"  set nocompatible
+"endif
+"
+"" When the +eval feature is missing, the set command above will be skipped.
+"" Use a trick to reset compatible only when the +eval feature is missing.
+"silent! while 0
+"  set nocompatible
+"silent! endwhile
 
 " rtp
 set rtp+=/usr/local/opt/fzf
@@ -40,6 +40,11 @@ set ttimeoutlen=100	" wait up to 100ms after Esc for special key
 
 " vim bug, :terminal doesn't restore cursor. have to explicitly set
 set t_SH=4
+
+" I use "ex:" as shorthand for "example:"
+" vim modelines thinks that's ex-mode
+" ex: vim --clean <(echo "[ ex: ]")
+set nomodeline
 
 " Show @@@ in the last line if it is truncated.
 set display=truncate
