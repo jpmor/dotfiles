@@ -1344,7 +1344,7 @@
 	<key>SeparateWindowTitlePerTab</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SoundForEsc</key>
