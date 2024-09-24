@@ -23,7 +23,7 @@ setup() {
 gitsync() {
   find "$MC" "$MCGO" "$IMC" -d 2 -maxdepth 2 -type d | parallel \
     'if [ ! -d {}/.git ]; then exit; fi
-    head_branch=$(git -C {} remote show origin | sed -n "s/  HEAD branch: \(\w\)/\1/p")
+    head_branch=$(git -C {} config --get init.defaultbranch)
     if [ -z "$(git -C {} diff origin/$head_branch)" ]
     then
       git -C "{}" pull --quiet origin $head_branch
@@ -108,6 +108,10 @@ update_ctags() {
 # print most used commands
 top_cmds() {
   fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
+}
+
+ke() {
+  k exec -it pod/$1 -c=app -- /bin/bash
 }
 
 merges() {

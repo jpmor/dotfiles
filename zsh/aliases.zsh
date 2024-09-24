@@ -1,13 +1,14 @@
 # generally, single quotes are better for aliases
 
 # directory jumps
-alias dot='cd $DOT'
+alias dots='cd $DOT'
 alias hw='cd $HW'
 alias hr='cd $HOME/side/homerun'
 alias sw='cd $HOME/side/site'
 alias mc='cd $MC'
-alias ma='cd $MC/product/mailchimp'
+alias ma='cd $MA'
 alias md='cd $IMC/mailchimp-monolith/mailchimp-app-deployment'
+alias hb='cd $MC/rsg/hairball'
 alias imc='cd $IMC'
 alias ia='cd $IMC/mailchimp-cloud/http-interposer'
 alias id='cd $IMC/mailchimp-cloud/http-interposer-deployment'
@@ -17,7 +18,7 @@ alias opm='cd $MC/ops/puppet-modules'
 alias rsg='cd $MC/rsg/'
 
 # adjustments
-alias ls='exa'
+alias ls='eza'
 alias jq='jq -r' # why is this not the default???
 alias grep='grep --color=auto'
 alias pip3='pip3 --isolated'
