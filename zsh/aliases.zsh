@@ -17,7 +17,7 @@ alias opm='cd $MC/ops/puppet-modules'
 alias rsg='cd $MC/rsg/'
 
 # adjustments
-alias ls='exa'
+alias ls=eza
 alias jq='jq -r' # why is this not the default???
 alias grep='grep --color=auto'
 alias pip3='pip3 --isolated'
@@ -32,6 +32,9 @@ alias -- -='cd -'
 alias brewup='brew update; brew upgrade'
 alias getpath='echo $PATH | tr : "\n"'
 alias t2='tree -L 2'
+
+# hw
+alias wt="$HW/script/wikitree.py"
 alias today='vim $(find $HW/log/*$(date +-%m-%d).md)'
 
 # shortcuts

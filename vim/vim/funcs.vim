@@ -46,7 +46,7 @@ endfunction
 " as a markdown link into the primary register.
 function Quote()
   let line = getline('.')
-  let untagged_line = substitute(line, ' :[a-z:]*$', '', '')
-  let relative_path = substitute(expand('%'), $HW . '/', '', '')
-  let @* = '[' . untagged_line . '](' . relative_path . ')'
+  let line = ' "' . substitute(line, '"', '\\"', 'g') . '"'
+  let entry = ' "' . expand('%') . '"'
+  let @* = system('$HW/script/mdtag.py -q ' . line . entry)
 endfunction
