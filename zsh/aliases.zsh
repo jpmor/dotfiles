@@ -15,12 +15,13 @@ alias mcgo='cd $MCGO'
 alias op='cd $MC/ops/pantropy'
 alias opm='cd $MC/ops/puppet-modules'
 alias rsg='cd $MC/rsg/'
+alias sd='cd $SIDE'
 
 # adjustments
 alias ls=eza
 alias jq='jq -r' # why is this not the default???
 alias grep='grep --color=auto'
-alias pip3='pip3 --isolated'
+#alias pip3='pip3 --isolated'
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias sed='gsed'
   alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'
