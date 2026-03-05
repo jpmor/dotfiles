@@ -6,8 +6,11 @@ export LESS_TERMCAP_md=$'\e[1;32m'
 
 export DOT="$HOME/.dot"
 export SITE="https://jpmor.com"
-export SIDE="$HOME/side"
 export HW="$HOME/homewiki"
+
+if [[ $DOTPROFILE == personal ]]; then
+  export SIDE="$HOME/side"
+fi
 export MC="/Volumes/CaseSensitive/mc"
 export IMC="/Volumes/CaseSensitive/imc"
 export GITHUB_HOST="github.com"

@@ -14,7 +14,6 @@ alias tt='cd $TT'
 alias imc='cd $IMC'
 alias ia='cd $IMC/mailchimp-cloud/http-interposer'
 alias id='cd $IMC/mailchimp-cloud/http-interposer-deployment'
-alias sd='cd $SIDE'
 
 # adjustments
 alias ls='eza'
