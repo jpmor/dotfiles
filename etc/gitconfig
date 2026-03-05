@@ -22,8 +22,6 @@
 	date = local
 [init]
 	defaultbranch = master
-[http]
-	postBuffer = 524288000
 [delta]
   navigate = true
   side-by-side = false

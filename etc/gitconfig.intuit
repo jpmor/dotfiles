@@ -1,3 +1,5 @@
 [user]
 	name = jmoriarty
 	email = james_moriarty@intuit.com
+[http]
+	postBuffer = 524288000
