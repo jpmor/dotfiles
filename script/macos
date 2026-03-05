@@ -1,0 +1,78 @@
+#!/bin/zsh
+# macOS system defaults for a dev workstation.
+# Run once on a new machine: ~/.dot/script/macos
+# Most changes require logout/restart to take effect.
+
+echo "Applying macOS defaults..."
+
+# ==============================================================================
+# Keyboard
+# ==============================================================================
+
+# Key repeat rate. 2 is the UI minimum; 1 is faster than the slider allows.
+defaults write NSGlobalDomain KeyRepeat -int 1
+# Delay before key repeat starts. 15 is the UI minimum; 10 is snappier.
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Disable text corrections — these mangle code pasted into Notes, Slack, etc.
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# ==============================================================================
+# Finder
+# ==============================================================================
+
+# Show hidden files (dotfiles visible in open/save dialogs and Finder).
+defaults write com.apple.finder AppleShowAllFiles -bool true
+# Show path bar and status bar at the bottom of Finder windows.
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+# Don't create .DS_Store files on network or USB volumes.
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+# Default to list view in Finder.
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+# Search current folder by default instead of entire Mac.
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# ==============================================================================
+# Dock
+# ==============================================================================
+
+# Already configured: autohide on, no recents, small tile size (27).
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock show-recents -bool false
+defaults write com.apple.dock tilesize -int 27
+# Remove the autohide delay — dock appears instantly on hover.
+defaults write com.apple.dock autohide-delay -float 0
+
+# ==============================================================================
+# Screenshots
+# ==============================================================================
+
+# Save screenshots to ~/Downloads instead of cluttering the Desktop.
+defaults write com.apple.screencapture location -string "$HOME/Downloads"
+# Remove drop shadow from screenshots.
+defaults write com.apple.screencapture disable-shadow -bool true
+
+# ==============================================================================
+# Misc
+# ==============================================================================
+
+# Expand save and print dialogs by default.
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+# Show crash reporter as notification rather than blocking dialog.
+defaults write com.apple.CrashReporter DialogType -string "notification"
+# Disable the "Are you sure you want to open this application?" quarantine dialog.
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# ==============================================================================
+# Apply
+# ==============================================================================
+
+killall Finder Dock 2>/dev/null
+echo "Done. Log out and back in for all changes to take effect."
