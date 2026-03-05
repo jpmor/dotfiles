@@ -11,7 +11,7 @@ gitsync() {
     else
       printf "❗️ "
     fi
-    echo {} | sed -En "s/.*\/([\.a-z\-]*\/[a-z]*|[\.a-z\-]*\.?[a-z\-]*)/\1/p"'
+    echo {} | awk -F/ '"'"'{if ($NF=="") NF--; print $(NF-1)"/"$NF}'"'"''
 }
 
 gro() {

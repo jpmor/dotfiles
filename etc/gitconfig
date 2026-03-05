@@ -39,3 +39,5 @@
 [maintenance]
 	repo = /Volumes/CaseSensitive/imc/mctx/mandrill-app           # $TA
 	repo = /Volumes/CaseSensitive/imc/mailchimp-monolith/mailchimp # $MA
+[http]
+	postBuffer = 524288000
