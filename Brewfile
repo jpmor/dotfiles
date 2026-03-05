@@ -11,6 +11,7 @@ brew "gh"
 brew "delta"
 
 # CLI tools
+brew "bat"
 brew "eza"
 brew "jq"
 brew "gnu-sed"
