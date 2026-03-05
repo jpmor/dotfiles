@@ -68,20 +68,6 @@ mdtag() {
   done <<< $tags
 }
 
-# open a user's MCA page
-p() {
-  open "https://us1.admin.mailchimp.com/peaches2/tools/user-search/direct-search?search-input=$1"
-}
-
-o() {
-  open "https://admin.mailchimp.com/peaches2/tools/user-search/direct-search?search-type=order&search-input=$1"
-}
-
-# update monolith ctags
-update_ctags() {
-  ctags -a -o .git/tags --options=$HOME/.ctags.cnf .
-}
-
 # print most used commands
 top_cmds() {
   fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20

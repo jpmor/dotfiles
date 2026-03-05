@@ -2,6 +2,9 @@
 
 set tags=.git/tags
 
+let g:gutentags_cache_dir = '.git'
+let g:gutentags_ctags_extra_args = ['--options=' . expand('~/.ctags.cnf')]
+
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 
