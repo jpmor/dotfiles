@@ -53,8 +53,7 @@ defaults write com.apple.dock autohide-delay -float 0
 # Screenshots
 # ==============================================================================
 
-# Save screenshots to ~/Downloads instead of cluttering the Desktop.
-defaults write com.apple.screencapture location -string "$HOME/Downloads"
+defaults write com.apple.screencapture location -string "$HOME/Desktop"
 # Remove drop shadow from screenshots.
 defaults write com.apple.screencapture disable-shadow -bool true
 

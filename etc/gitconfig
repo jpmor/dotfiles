@@ -39,3 +39,6 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [includeIf "gitdir:/Volumes/CaseSensitive/imc/"]
 	path = ~/.dot/etc/gitconfig.intuit
+[maintenance]
+	repo = /Volumes/CaseSensitive/imc/mctx/mandrill-app           # $TA
+	repo = /Volumes/CaseSensitive/imc/mailchimp-monolith/mailchimp # $MA
