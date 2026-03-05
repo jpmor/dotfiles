@@ -33,8 +33,8 @@ hi VimwikiTag ctermfg=191
 hi VimwikiTag ctermfg=24
 hi VimwikiLink ctermfg=172
 hi VimwikiList ctermfg=30
-hi VimwikiItalic ctermfg=219
-hi VimwikiBold ctermfg=228
+hi VimwikiItalic ctermfg=228 cterm=italic
+hi VimwikiBold ctermfg=219 cterm=bold
 hi VimwikiCode ctermfg=86
 
 hi VimwikiHeader1 ctermfg=81

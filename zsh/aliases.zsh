@@ -31,6 +31,9 @@ alias -- -='cd -'
 alias brewup='brew update; brew upgrade'
 alias getpath='echo $PATH | tr : "\n"'
 alias t2='tree -L 2'
+
+# hw
+alias wt="$HW/script/wikitree.py"
 alias today='vim $(find $HW/log/*$(date +-%m-%d).md)'
 
 # shortcuts
