@@ -114,6 +114,8 @@ call plug#begin('~/.vim/plug')
   Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale'
   Plug 'vimwiki/vimwiki'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
   Plug 'hashivim/vim-terraform'
   Plug 'github/copilot.vim'
   Plug 'ludovicchabant/vim-gutentags'

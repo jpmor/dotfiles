@@ -55,5 +55,8 @@ elif [ -f /usr/local/bin/brew ]; then
   eval $(/usr/local/bin/brew shellenv)
 fi
 
+# zsh-completions (must be before compinit)
+[[ "$OSTYPE" == "darwin"* ]] && FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
 # For arrays, keep only the first occurrence of each duplicated value.
 typeset -U path

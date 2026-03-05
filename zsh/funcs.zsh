@@ -1,7 +1,7 @@
 # shared
 
 gitsync() {
-  { echo "$DOT"; find "$IMC" -d 2 -maxdepth 2 -type d; } | parallel --jobs 0 \
+  { echo "$DOT"; fd --type d --max-depth 2 . "$IMC"; } | parallel --jobs 0 \
     'if [ ! -d {}/.git ]; then exit; fi
     head_branch=$(git -C {} config --get init.defaultbranch)
     if git -C {} diff --quiet origin/$head_branch
