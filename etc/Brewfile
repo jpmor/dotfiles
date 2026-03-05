@@ -1,7 +1,7 @@
 # Shell
+brew "fzf"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
-brew "fzf"
 
 # Editor
 brew "vim"
@@ -11,27 +11,27 @@ brew "gh"
 brew "git-delta"
 
 # CLI tools
+brew "aspell"
 brew "bat"
+brew "ctags"
 brew "eza"
 brew "fd"
-brew "jq"
-brew "yq"
 brew "gnu-sed"
-brew "tree"
-brew "ripgrep"
-brew "xh"
 brew "hey"
+brew "jq"
 brew "parallel"
-brew "aspell"
-brew "ctags"
-brew "zoxide"
-brew "watch"
+brew "ripgrep"
 brew "telnet"
+brew "tree"
+brew "watch"
+brew "xh"
+brew "yq"
+brew "zoxide"
 
 # Kubernetes
+brew "k9s"
 brew "kubectl"
 brew "stern"
-brew "k9s"
 
 # Casks
 cask "google-cloud-sdk"
