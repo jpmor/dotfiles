@@ -3,8 +3,11 @@
 # directory jumps
 alias dots='cd $DOT'
 alias hw='cd $HW'
-alias hr='cd $HOME/side/homerun'
-alias sw='cd $HOME/side/site'
+if [[ $DOTPROFILE == personal ]]; then
+  alias hr='cd $HOME/side/homerun'
+  alias sw='cd $HOME/side/site'
+  alias sd='cd $SIDE'
+fi
 alias mc='cd $MC'
 alias ma='cd $MA'
 alias md='cd $IMC/mailchimp-monolith/mailchimp-app-deployment'
