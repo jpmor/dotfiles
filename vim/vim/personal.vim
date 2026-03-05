@@ -1,5 +1,19 @@
-" vimwiki configs
+" personal mappings
+nmap <silent> <leader>gq :call Quote()<CR>
+nmap <silent> <leader>b V:s/\.[ ]*/.\r\r/g<CR>d2d
+nmap <silent> <leader>n :.,$sort! ur /\[.*\]/<bar>.,$sort! ur /log\/\d\{4}-\d\{2}-\d\{2}/<CR>
+nmap <silent> <leader>4 :call Browse("https://finviz.com/quote.ashx?t=<cword>")<CR>
+map  <silent> <leader>w y:call Browse("https://en.wikipedia.org/wiki/<C-r>"")<CR>
 
+" Copies the current line without tags as a markdown link into the primary register.
+function Quote()
+  let line = getline('.')
+  let line = ' "' . substitute(line, '"', '\\"', 'g') . '"'
+  let entry = ' "' . expand('%') . '"'
+  let @* = system('$HW/script/mdtag.py -q ' . line . entry)
+endfunction
+
+" vimwiki configs
 " let g:vimwiki_folding = 'syntax'
 let g:vimwiki_markdown_link_ext = 1
 

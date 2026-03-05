@@ -1,42 +1,29 @@
-" Bail out if something that ran earlier, e.g. a system wide vimrc, does not
-" want Vim to use these default values.
-"if exists('skip_defaults_vim')
-"  finish
-"endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-" Avoid side effects when it was already reset.
-"if &compatible
-"  set nocompatible
-"endif
-"
-"" When the +eval feature is missing, the set command above will be skipped.
-"" Use a trick to reset compatible only when the +eval feature is missing.
-"silent! while 0
-"  set nocompatible
-"silent! endwhile
-
-" rtp
+" fzf installed via brew
 set rtp+=$HOMEBREW_PREFIX/opt/fzf
 
 " general
-set ts=2 et shiftwidth=2
-set backspace=indent,eol,start
+set ts=2 et shiftwidth=2  " 2-space soft tabs
+set backspace=indent,eol,start " backspace over anything in insert mode
 set shell=/bin/zsh
 set encoding=utf-8
-set clipboard=unnamed
-set nofoldenable
-set foldmethod=indent
-set ignorecase smartcase
+set clipboard=unnamed     " yank/paste uses system clipboard
+set nofoldenable          " disable folding
+set ignorecase smartcase  " case-insensitive unless uppercase used
 
 set history=200		" keep 200 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
-set wildmenu		" display completion matches in a status line
+set wildmenu		" command-line completion with Tab
 
 set ttimeout		" time out for key codes
-set ttimeoutlen=100	" wait up to 100ms after Esc for special key
+set ttimeoutlen=10	" minimal delay after Esc (reduces insert mode lag)
+
+set scrolloff=5		" keep 5 lines visible above/below cursor
+set splitbelow splitright " new splits open below and to the right
+
+" persist undo history across file closes
+set undofile
+set undodir=~/.vim/undo
 
 " vim bug, :terminal doesn't restore cursor. have to explicitly set
 set t_SH=4
@@ -72,45 +59,28 @@ endif
 " show search counts
 set shortmess-=S
 
-" Only do this part when Vim was compiled with the +eval feature.
-if 1
+" Enable file type detection.
+filetype plugin on
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin on
+augroup vimStartup
+  au!
 
-  " Put these in an autocmd group, so that you can revert them with:
-  " ":augroup vimStartup | au! | augroup END"
-  augroup vimStartup
-    au!
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid, when inside an event handler
-    " (happens when dropping a file on gvim) and for a commit message (it's
-    " likely a different one than last time).
-    autocmd BufReadPost *
-      \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-      \ |   exe "normal! g`\""
-      \ | endif
-
-  augroup END
+  " When editing a file, always jump to the last known cursor position.
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
 
   " Strip trailing whitespace on write
-  autocmd BufWritePre *.* %s/\s\+$//e
+  autocmd BufWritePre * %s/\s\+$//e
 
-endif
+augroup END
 
 " Load plugins
 call plug#begin('~/.vim/plug')
   Plug 'fatih/vim-go', { 'for': 'go' }
-  Plug 'rust-lang/rust.vim'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
-  Plug 'junegunn/goyo.vim'
-  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale'
   Plug 'vimwiki/vimwiki'
   Plug 'tpope/vim-commentary'
@@ -132,5 +102,5 @@ if $DOTPROFILE == "intuit"
 endif
 
 if $DOTPROFILE == "personal"
-  so $HOME/.vim/wiki.vim
+  so $HOME/.vim/personal.vim
 endif

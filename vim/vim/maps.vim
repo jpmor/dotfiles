@@ -18,8 +18,6 @@ nmap <silent> <leader>z :e $DOT/zsh/zshenv<CR>
 " plugins
 nmap <silent> <leader>A :ALEToggle<CR>
 nmap <silent> <leader>B :Git blame<CR>
-nmap <silent> <leader>D :NERDTreeFind<CR>
-nmap <silent> <leader>d :NERDTreeToggle<CR>
 nmap <silent> <leader>f :call RG2("<C-R><C-W>")<CR>
 
 " navigation
@@ -34,12 +32,6 @@ nmap <silent> <leader>l <C-W><C-L>
 " git
 nmap <silent> <leader>gf :call Line()<CR>
 nmap <silent> <leader>gh :call Blame()<CR>
-nmap <silent> <leader>gq :call Quote()<CR>
 
 " util
 nmap <silent> <leader>p :let @+ = join([expand('%'),  line(".")], ':')<CR>
-nmap <silent> <leader>b V:s/\.[ ]*/.\r\r/g<CR>d2d
-" sort by last 4 line chars for consistency, then by date
-nmap <silent> <leader>n :.,$sort! ur /\[.*\]/<bar>.,$sort! ur /log\/\d\{4}-\d\{2}-\d\{2}/<CR>
-nmap <silent> <leader>4 :call Browse("https://finviz.com/quote.ashx?t=<cword>")<CR>
-map <silent> <leader>w y:call Browse("https://en.wikipedia.org/wiki/<C-r>"")<CR>

@@ -7,6 +7,7 @@ ln -s -f ~/.dot/zsh/zshenv ~/.zshenv
 ln -s -f ~/.dot/vim/vimrc ~/.vimrc
 rm -f ~/.vim # silly, ln can't overwrite directory symlinks
 ln -s -f ~/.dot/vim/vim ~/.vim
+mkdir -p ~/.vim/undo
 # git
 ln -s -f ~/.dot/etc/gitconfig ~/.gitconfig
 ln -s -f ~/.dot/etc/gitignore ~/.gitignore
