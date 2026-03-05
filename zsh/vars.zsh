@@ -5,48 +5,55 @@ export VISUAL="vim"
 export LESS_TERMCAP_md=$'\e[1;32m'
 
 export DOT="$HOME/.dot"
-export SITE="https://jpmor.com"
-export HW="$HOME/homewiki"
 
+export FZF_BASE="/usr/local/bin/fzf"
+export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
+
+export DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# personal
 if [[ $DOTPROFILE == personal ]]; then
   export SIDE="$HOME/side"
+  export SITE="https://jpmor.com"
+  export HW="$HOME/homewiki"
+  export GOPATH="$HOME/side/go"
 fi
-export MC="/Volumes/CaseSensitive/mc"
-export IMC="/Volumes/CaseSensitive/imc"
-export GITHUB_HOST="github.com"
 
+# intuit
 if [[ $DOTPROFILE == intuit ]]; then
+  export N_PREFIX="$HOME/.n"
+  export MC="/Volumes/CaseSensitive/mc"
+  export IMC="/Volumes/CaseSensitive/imc"
   export MA="$IMC/mailchimp-monolith/mailchimp"
   export TA="$IMC/mctx/mandrill-app"
   export TD="$IMC/mctx/mandrill-app-deployment"
   export TT="$IMC/mctx/mandrill-tests"
-  export CS_STANDARD="$MA/vendor/rsg/mc-codesniffer-ruleset/MCStandard"
   export KUBECONFIG="$HOME/.kube/intuit_config"
   export GITHUB_HOST="github.intuit.com"
+  export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key"
+  export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 fi
-export RBENV_ROOT="$HOME/.rbenv"
-export GOPATH="$HOME/side/go"
-export N_PREFIX="$HOME/.n"
-export FZF_BASE="/usr/local/bin/fzf"
-export FZF_DEFAULT_OPTS="--layout=reverse --inline-info"
-export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key"
-
-# Why is this a Cask?
-export USE_GKE_GCLOUD_AUTH_PLUGIN=True
-
-export DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 path=(
-  $HOME/.rd/bin        # rancher desktop
   $HOME/.local/bin     # pipx
-  $N_PREFIX/bin        # node (n)
-  $RBENV_ROOT/bin      # ruby (rbenv)
-  $GOPATH/bin          # go
   $HOME/.cargo/bin     # rust (cargo)
   $DOT/bin             # dotfiles scripts
   /usr/local/bin       # docker
   $path
 )
+
+if [[ $DOTPROFILE == personal ]]; then
+  path=($GOPATH/bin $path)  # go
+fi
+
+if [[ $DOTPROFILE == intuit ]]; then
+  path=(
+    $HOME/.rd/bin      # rancher desktop
+    $HOME/.rbenv/bin   # ruby (rbenv)
+    $N_PREFIX/bin      # node (n)
+    $path
+  )
+fi
 
 # Cache brew shellenv to avoid spawning a subprocess on every shell open (~50ms).
 # Cache is invalidated when the brew binary itself changes (i.e. after brew upgrades).
