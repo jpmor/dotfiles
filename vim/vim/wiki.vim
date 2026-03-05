@@ -19,7 +19,6 @@ let site.path_html = '~/side/site/'
 let site.syntax = 'markdown'
 let site.ext = '.md'
 let site.css_name = 'static/style.css'
-let site.auto_export = 0
 let site.template_path = '~/side/site/static/'
 let site.template_default = 'template'
 let site.template_ext = ''

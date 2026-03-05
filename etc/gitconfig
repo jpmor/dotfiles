@@ -12,11 +12,6 @@
   conflictstyle = diff3   # Shows base in conflicts
 [interactive]
     diffFilter = delta --color-only
-[delta]
-    features = line-numbers decorations
-    navigate = true          # Jump between diff sections with n / N
-    syntax-theme = Monokai Extended
-    side-by-side = false     # Set true if you want side-by-side diffs
 [diff]
   tool = vimdiff
 [difftool]
@@ -29,3 +24,9 @@
 	date = local
 [init]
 	defaultbranch = master
+[delta]
+  navigate = true
+  #side-by-side = true
+  line-numbers = true
+  decorations = true
+  syntax-theme = Dracula

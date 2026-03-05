@@ -45,11 +45,24 @@ getpr() {
 }
 
 # fuzzy find phrases and then open that line in vim
-hit() {
+ht() {
   #match=$(rg --vimgrep $@ | fzf -0)
   mc_glob_exclusion="$(if [[ $PWD = $MC/product/mailchimp ]]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
 
   match=$(rg --hidden --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $@ | fzf -0)
+
+  if [ ! -z "$match" ]; then
+    file=$(cut -d ':' -f1 <<< "$match")
+    line=$(sed -r 's/.*:([0-9]+):[0-9]+:.*/\1/' <<< "$match")
+    col=$(sed -r 's/.*:[0-9]+:([0-9]+):.*/\1/' <<< "$match")
+
+    vim "+normal $line"'G'"$col|" "$file"
+  fi
+}
+
+# fuzzy find phrases and then open that line in vim
+hit() {
+  match=$(rg --hidden --vimgrep -i -e $@ | fzf -0)
 
   if [ ! -z "$match" ]; then
     file=$(cut -d ':' -f1 <<< "$match")
