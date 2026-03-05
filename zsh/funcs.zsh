@@ -56,9 +56,9 @@ merges() {
     git --no-pager show --quiet --pretty="%C(red)%h %C(yellow)%ad %C(cyan)%an %n %C(magenta)%b %C(white)" $sha
     # Print the PR url (if it exists, we used to push directly).
     pr=$(git show --format=%B $sha | grep -ohE '#\d*')
-    orgrepo=$(git remote get-url origin | sed -n "s/.*com\/\(.*\).git/\1/p")
+    repourl=$(git remote get-url origin | sed -n "s/.*github/https:\/\/github/p" | sed "s/\.git$//")
     if [[ $pr ]]; then
-      echo " https://$GITHUB_HOST/$orgrepo/pull/${pr:1}\n"
+      echo " $repourl/pull/${pr:1}\n"
     fi
     # Print the diff of the total merge.
     #git --no-pager diff --stat $sha^ $sha;

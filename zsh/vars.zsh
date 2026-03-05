@@ -29,7 +29,6 @@ if [[ $DOTPROFILE == intuit ]]; then
   export TD="$IMC/mctx/mandrill-app-deployment"
   export TT="$IMC/mctx/mandrill-tests"
   export KUBECONFIG="$HOME/.kube/intuit_config"
-  export GITHUB_HOST="github.intuit.com"
   export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key"
   export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 fi
