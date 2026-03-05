@@ -5,6 +5,11 @@
   excludesfile = ~/.gitignore
   editor = vim
   pager = delta
+[pager]
+  log = delta
+  show = delta
+[merge]
+  conflictstyle = diff3
 [interactive]
   diffFilter = delta --color-only
 [diff]
@@ -23,6 +28,7 @@
   navigate = true
   side-by-side = false
   line-numbers = true
+  decorations = true
   syntax-theme = Dracula
 [credential "https://github.com"]
 	helper =

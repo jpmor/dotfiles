@@ -14,12 +14,13 @@ alias tt='cd $TT'
 alias imc='cd $IMC'
 alias ia='cd $IMC/mailchimp-cloud/http-interposer'
 alias id='cd $IMC/mailchimp-cloud/http-interposer-deployment'
+alias sd='cd $SIDE'
 
 # adjustments
 alias ls='eza'
 alias jq='jq -r' # why is this not the default???
 alias grep='grep --color=auto'
-alias pip3='pip3 --isolated'
+#alias pip3='pip3 --isolated'
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias sed='gsed'
   alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport'

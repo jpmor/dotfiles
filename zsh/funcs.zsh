@@ -25,8 +25,7 @@ getpr() {
 
 # fuzzy find phrases and then open that line in vim
 hit() {
-  #match=$(rg --vimgrep $@ | fzf -0)
-  match=$(rg --hidden --vimgrep -g '!.git/**' -e $@ | fzf -0)
+  match=$(rg --hidden --vimgrep -i -g '!.git/**' -e $@ | fzf -0)
 
   if [ ! -z "$match" ]; then
     file=$(cut -d ':' -f1 <<< "$match")

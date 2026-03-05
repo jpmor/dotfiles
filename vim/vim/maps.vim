@@ -39,6 +39,7 @@ nmap <silent> <leader>gq :call Quote()<CR>
 " util
 nmap <silent> <leader>p :let @+ = join([expand('%'),  line(".")], ':')<CR>
 nmap <silent> <leader>b V:s/\.[ ]*/.\r\r/g<CR>d2d
-nmap <silent> <leader>n :.,$sort! ur /.\{4\}\]/<bar>.,$sort! ur /\d\{4}-\d\{2}-\d\{2}/<CR>
+" sort by last 4 line chars for consistency, then by date
+nmap <silent> <leader>n :.,$sort! ur /\[.*\]/<bar>.,$sort! ur /log\/\d\{4}-\d\{2}-\d\{2}/<CR>
 nmap <silent> <leader>4 :call Browse("https://finviz.com/quote.ashx?t=<cword>")<CR>
 map <silent> <leader>w y:call Browse("https://en.wikipedia.org/wiki/<C-r>"")<CR>
