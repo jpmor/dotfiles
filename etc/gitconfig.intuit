@@ -3,3 +3,6 @@
 	email = james_moriarty@intuit.com
 [http]
 	postBuffer = 524288000
+[credential "https://github.intuit.com"]
+	helper =
+	helper = !/opt/homebrew/bin/gh auth git-credential

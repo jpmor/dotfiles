@@ -34,9 +34,6 @@
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
-[credential "https://github.intuit.com"]
-	helper =
-	helper = !/opt/homebrew/bin/gh auth git-credential
 [includeIf "gitdir:/Volumes/CaseSensitive/imc/"]
 	path = ~/.dot/etc/gitconfig.intuit
 [maintenance]
