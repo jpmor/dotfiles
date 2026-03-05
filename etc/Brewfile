@@ -8,19 +8,30 @@ brew "vim"
 
 # Git
 brew "gh"
-brew "delta"
+brew "git-delta"
 
 # CLI tools
 brew "bat"
 brew "eza"
+brew "fd"
 brew "jq"
+brew "yq"
 brew "gnu-sed"
 brew "tree"
 brew "ripgrep"
+brew "xh"
+brew "hey"
 brew "parallel"
 brew "aspell"
 brew "ctags"
+brew "zoxide"
+brew "watch"
+brew "telnet"
+
+# Kubernetes
 brew "kubectl"
+brew "stern"
+brew "k9s"
 
 # Casks
 cask "google-cloud-sdk"
