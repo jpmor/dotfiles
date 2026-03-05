@@ -18,7 +18,7 @@
 "silent! endwhile
 
 " rtp
-set rtp+=/usr/local/opt/fzf
+set rtp+=$HOMEBREW_PREFIX/opt/fzf
 
 " general
 set ts=2 et shiftwidth=2

@@ -6,7 +6,6 @@ endfunction
 function Line()
   let filepath = substitute(expand('%:p:f'), system('git rev-parse --show-toplevel | tr -d "\n"'), '', '')
   "strip dirs preceding org dir
-  let filepath = substitute(filepath, $MC, '', '')
   let filepath = substitute(filepath, $IMC, '', '')
   "format with github uri path
   let origin = system('git config --local --get remote.origin.url | sed -n "s/.git$//p" | tr -d "\n"')
@@ -19,7 +18,6 @@ endfunction
 function Blame()
   let filepath = substitute(expand('%:p:f'), system('git rev-parse --show-toplevel | tr -d "\n"'), '', '')
   "strip dirs preceding org dir
-  let filepath = substitute(filepath, $MC, '', '')
   let filepath = substitute(filepath, $IMC, '', '')
   "strip leading slash
   let filepath = substitute(filepath, '^/', '', '')

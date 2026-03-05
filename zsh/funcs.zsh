@@ -1,27 +1,6 @@
-# automatically clones and sets up repos for MC
-# args: org, repo
-setup() {
-  ghe_api_url="https://$GITHUB_HOST/api/v3/repos/$1/$2/forks"
-  curl -o /dev/null -su "$USER:$(cat ~/.ghe)" -X POST $ghe_api_url # make a fork
-  sleep 10 # wait cuz forking is async
-
-  origin_url=git@$GITHUB_HOST:$USER/$2.git
-  mkdir -p $MC/$1
-  git clone $origin_url $MC/$1/$2; # clone fork as origin
-
-  upstream_url=git@$GITHUB_HOST:$1/$2.git
-  git -C $MC/$1/$2 remote add upstream $upstream_url # add upstream as upstream
-  echo
-  echo "******** REMOTES: ********"
-  git -C $MC/$1/$2 remote -vv
-  echo "**************************"
-  echo
-  echo "Setup Complete!!"
-}
-
 # pulls in updates for all my MC repos
 gitsync() {
-  find "$MC" "$MCGO" "$IMC" -d 2 -maxdepth 2 -type d | parallel \
+  find "$IMC" -d 2 -maxdepth 2 -type d | parallel \
     'if [ ! -d {}/.git ]; then exit; fi
     head_branch=$(git -C {} config --get init.defaultbranch)
     if [ -z "$(git -C {} diff origin/$head_branch)" ]
@@ -47,9 +26,7 @@ getpr() {
 # fuzzy find phrases and then open that line in vim
 hit() {
   #match=$(rg --vimgrep $@ | fzf -0)
-  mc_glob_exclusion="$(if [[ $PWD = $MC/product/mailchimp ]]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
-
-  match=$(rg --hidden --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -g '!.git/**' -e $@ | fzf -0)
+  match=$(rg --hidden --vimgrep -g '!.git/**' -e $@ | fzf -0)
 
   if [ ! -z "$match" ]; then
     file=$(cut -d ':' -f1 <<< "$match")
@@ -138,7 +115,7 @@ merges() {
     pr=$(git show --format=%B $sha | grep -ohE '#\d*')
     orgrepo=$(git remote get-url origin | sed -n "s/.*com\/\(.*\).git/\1/p")
     if [[ $pr ]]; then
-      echo " https://github.intuit.com/$orgrepo/pull/${pr:1}\n"
+      echo " https://$GITHUB_HOST/$orgrepo/pull/${pr:1}\n"
     fi
     # Print the diff of the total merge.
     #git --no-pager diff --stat $sha^ $sha;
