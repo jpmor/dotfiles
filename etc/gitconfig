@@ -1,34 +1,32 @@
 [user]
-	name = James Moriarty
-	email = james@moriartys.co
+	name = jmoriarty
+	email = james_moriarty@intuit.com
 [core]
   excludesfile = ~/.gitignore
   editor = vim
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
 [diff]
   tool = vimdiff
-[difftool]
-  prompt = false
-[hub]
-  host = $GITHUB_HOST
-	host = git.rsglab.com
 [alias]
   lg = log --all -n 30 --graph --pretty=format:'%C(yellow)%h%C(auto)%d%C(white) %s %C(dim bold cyan)%cr'
 [color]
 	ui = true
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = 227
-	frag = magenta bold
-	commit = 227 bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
 [log]
 	date = local
 [init]
 	defaultbranch = master
+[http]
+	postBuffer = 524288000
+[delta]
+  navigate = true
+  side-by-side = false
+  line-numbers = true
+  syntax-theme = Dracula
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

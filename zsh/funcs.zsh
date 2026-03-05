@@ -35,7 +35,7 @@ gitsync() {
 }
 
 gro() {
-  git fetch origin
+  git fetch origin $(git branch --show-current)
   git reset --hard "origin/$(git branch --show-current)"
 }
 
@@ -49,7 +49,7 @@ hit() {
   #match=$(rg --vimgrep $@ | fzf -0)
   mc_glob_exclusion="$(if [[ $PWD = $MC/product/mailchimp ]]; then print vendor/^rsg | sed 's/ /,/g' | tr -d '\n'; else print ''; fi)"
 
-  match=$(rg --hidden --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -e $@ | fzf -0)
+  match=$(rg --hidden --vimgrep -g '!{'"$mc_glob_exclusion"'}/**' -g '!.git/**' -e $@ | fzf -0)
 
   if [ ! -z "$match" ]; then
     file=$(cut -d ':' -f1 <<< "$match")
@@ -110,8 +110,16 @@ top_cmds() {
   fc -l 1 | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n20
 }
 
-ke() {
+kea() {
   k exec -it pod/$1 -c=app -- /bin/bash
+}
+
+ken() {
+  k exec -it pod/$1 -c=nginx -- /bin/bash
+}
+
+ke1() {
+  ke $(k get pods --no-headers | head -1 | awk '{print $1}')
 }
 
 merges() {
@@ -128,12 +136,13 @@ merges() {
     git --no-pager show --quiet --pretty="%C(red)%h %C(yellow)%ad %C(cyan)%an %n %C(magenta)%b %C(white)" $sha
     # Print the PR url (if it exists, we used to push directly).
     pr=$(git show --format=%B $sha | grep -ohE '#\d*')
-    orgrepo=$(git remote get-url upstream | grep -oh '\w*\/\w*')
+    orgrepo=$(git remote get-url origin | sed -n "s/.*com\/\(.*\).git/\1/p")
     if [[ $pr ]]; then
-      echo " https://$GITHUB_HOST/$orgrepo/pull/${pr:1}\n"
+      echo " https://github.intuit.com/$orgrepo/pull/${pr:1}\n"
     fi
     # Print the diff of the total merge.
-    git --no-pager diff --stat $sha^ $sha;
+    #git --no-pager diff --stat $sha^ $sha;
+    git diff-tree --name-only -m -r $sha^ $sha
     echo
   done <<< $merge_shas
 }

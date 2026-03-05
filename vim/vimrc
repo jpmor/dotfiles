@@ -115,8 +115,9 @@ call plug#begin('~/.vim/plug')
   Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale'
   "Plug '~/side/vimwiki'
-  Plug 'vimwiki/vimwiki'
+  "Plug 'vimwiki/vimwiki'
   Plug 'hashivim/vim-terraform'
+  Plug 'github/copilot.vim'
 call plug#end()
 
 filetype indent off
