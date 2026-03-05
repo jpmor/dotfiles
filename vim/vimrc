@@ -104,14 +104,13 @@ endif
 
 " Load plugins
 call plug#begin('~/.vim/plug')
-  Plug 'fatih/vim-go'
+  Plug 'fatih/vim-go', { 'for': 'go' }
   Plug 'rust-lang/rust.vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'junegunn/goyo.vim'
   "Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'scrooloose/nerdtree'
-  Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale'
   Plug 'vimwiki/vimwiki'
   Plug 'tpope/vim-commentary'

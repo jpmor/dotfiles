@@ -48,11 +48,18 @@ path=(
   $path
 )
 
-# Setup brew vars, including adding brew bin to path
+# Cache brew shellenv to avoid spawning a subprocess on every shell open (~50ms).
+# Cache is invalidated when the brew binary itself changes (i.e. after brew upgrades).
 if [ -f /opt/homebrew/bin/brew ]; then
-  eval $(/opt/homebrew/bin/brew shellenv) # apple silicon
+  if [[ ! -f ~/.brew_env || /opt/homebrew/bin/brew -nt ~/.brew_env ]]; then
+    /opt/homebrew/bin/brew shellenv > ~/.brew_env
+  fi
+  source ~/.brew_env
 elif [ -f /usr/local/bin/brew ]; then
-  eval $(/usr/local/bin/brew shellenv)
+  if [[ ! -f ~/.brew_env || /usr/local/bin/brew -nt ~/.brew_env ]]; then
+    /usr/local/bin/brew shellenv > ~/.brew_env
+  fi
+  source ~/.brew_env
 fi
 
 # zsh-completions (must be before compinit)
