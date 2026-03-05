@@ -2,21 +2,25 @@
 
 # directory jumps
 alias dots='cd $DOT'
-alias hw='cd $HW'
+
 if [[ $DOTPROFILE == personal ]]; then
+  alias hw='cd $HW'
   alias hr='cd $HOME/side/homerun'
   alias sw='cd $HOME/side/site'
   alias sd='cd $SIDE'
 fi
-alias mc='cd $MC'
-alias ma='cd $MA'
-alias md='cd $IMC/mailchimp-monolith/mailchimp-app-deployment'
-alias ta='cd $TA'
-alias td='cd $TD'
-alias tt='cd $TT'
-alias imc='cd $IMC'
-alias ia='cd $IMC/mailchimp-cloud/http-interposer'
-alias id='cd $IMC/mailchimp-cloud/http-interposer-deployment'
+
+if [[ $DOTPROFILE == intuit ]]; then
+  alias mc='cd $MC'
+  alias ma='cd $MA'
+  alias md='cd $IMC/mailchimp-monolith/mailchimp-app-deployment'
+  alias ta='cd $TA'
+  alias td='cd $TD'
+  alias tt='cd $TT'
+  alias imc='cd $IMC'
+  alias ia='cd $IMC/mailchimp-cloud/http-interposer'
+  alias id='cd $IMC/mailchimp-cloud/http-interposer-deployment'
+fi
 
 # adjustments
 alias ls='eza'
@@ -35,11 +39,12 @@ alias brewup='brew update; brew upgrade'
 alias getpath='echo $PATH | tr : "\n"'
 alias t2='tree -L 2'
 
-# hw
-alias wt="$HW/script/wikitree.py"
-alias today='vim $(find $HW/log/*$(date +-%m-%d).md)'
-
 # shortcuts
+if [[ $DOTPROFILE == personal ]]; then
+  alias wt="$HW/script/wikitree.py"
+  alias today='vim $(find $HW/log/*$(date +-%m-%d).md)'
+fi
+
 alias k='kubectl'
 alias gcm='git commit -m'
 alias gd='git diff'
