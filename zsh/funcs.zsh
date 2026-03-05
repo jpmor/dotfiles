@@ -1,6 +1,6 @@
 # pulls in updates for all my MC repos
 gitsync() {
-  find "$IMC" -d 2 -maxdepth 2 -type d | parallel \
+  find "$DOT" "$IMC" -d 2 -maxdepth 2 -type d | parallel \
     'if [ ! -d {}/.git ]; then exit; fi
     head_branch=$(git -C {} config --get init.defaultbranch)
     if [ -z "$(git -C {} diff origin/$head_branch)" ]
