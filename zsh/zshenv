@@ -6,6 +6,7 @@ confs=(
 )
 
 export DOT="$HOME/.dot"
+[[ $USER == jmoriarty ]] && export DOTPROFILE=intuit || export DOTPROFILE=personal
 
 for conf ($confs); do
   source "$DOT/zsh/$conf.zsh";
