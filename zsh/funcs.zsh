@@ -1,16 +1,16 @@
 # pulls in updates for all my MC repos
 gitsync() {
-  find "$DOT" "$IMC" -d 2 -maxdepth 2 -type d | parallel \
+  { echo "$DOT"; find "$IMC" -d 2 -maxdepth 2 -type d; } | parallel --jobs 0 \
     'if [ ! -d {}/.git ]; then exit; fi
     head_branch=$(git -C {} config --get init.defaultbranch)
-    if [ -z "$(git -C {} diff origin/$head_branch)" ]
+    if git -C {} diff --quiet origin/$head_branch
     then
       git -C "{}" pull --quiet origin $head_branch
       printf "✅ "
     else
       printf "❗️ "
     fi
-    echo {} | sed -En "s/.*\/([a-z\-]*\/[a-z]*)/\1/p"'
+    echo {} | sed -En "s/.*\/([\.a-z\-]*\/[a-z]*|[\.a-z\-]*\.?[a-z\-]*)/\1/p"'
 }
 
 gro() {
