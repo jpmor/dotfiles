@@ -90,6 +90,8 @@ call plug#begin('~/.vim/plug')
   Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
+let g:gutentags_cache_dir = expand('~/.cache/ctags')
+
 filetype indent off
 
 " sourcing

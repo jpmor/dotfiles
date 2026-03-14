@@ -1,6 +1,5 @@
 " mc configs
 
-let g:gutentags_cache_dir = expand('~/.cache/ctags')
 let g:gutentags_ctags_extra_args = ['--options=' . expand('~/.ctags.cnf')]
 
 let g:ale_lint_on_text_changed = 'never'
