@@ -82,7 +82,7 @@ call plug#begin('~/.vim/plug')
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-fugitive'
   Plug 'dense-analysis/ale'
-  Plug 'vimwiki/vimwiki'
+  Plug '~/side/vimwiki'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'hashivim/vim-terraform'
