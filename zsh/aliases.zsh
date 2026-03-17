@@ -43,7 +43,7 @@ alias t2='tree -L 2'
 if [[ $DOTPROFILE == personal ]]; then
   alias wt="$HW/tools/wt"
   alias flow="$HW/tools/flow"
-  alias budget="$HW/tools/budget/budget"
+  alias wealth="$HW/tools/wealth/wealth"
   alias today='vim $(find $HW/log/*$(date +-%m-%d).md)'
 fi
 
