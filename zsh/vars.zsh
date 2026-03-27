@@ -25,10 +25,13 @@ if [[ $DOTPROFILE == intuit ]]; then
   export MC="/Volumes/CaseSensitive/mc"
   export IMC="/Volumes/CaseSensitive/imc"
   export MA="$IMC/mailchimp-monolith/mailchimp"
+  export AP="$IMC/crmmktg-mktauto/automations-platform"
+  export AD="$IMC/crmmktg-mktauto/automations-platform-deployment"
   export TA="$IMC/mctx/mandrill-app"
   export TD="$IMC/mctx/mandrill-app-deployment"
   export TT="$IMC/mctx/mandrill-tests"
   export KUBECONFIG="$HOME/.kube/intuit_config"
+  [[ -f ~/.config/splunk/credentials ]] && export SPLUNK_PASSWORD=$(cat ~/.config/splunk/credentials)
   export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key"
   export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 fi

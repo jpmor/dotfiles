@@ -14,6 +14,8 @@ if [[ $DOTPROFILE == intuit ]]; then
   alias mc='cd $MC'
   alias ma='cd $MA'
   alias md='cd $IMC/mailchimp-monolith/mailchimp-app-deployment'
+  alias ap='cd $AP'
+  alias ad='cd $AD'
   alias ta='cd $TA'
   alias td='cd $TD'
   alias tt='cd $TT'
