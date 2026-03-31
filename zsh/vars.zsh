@@ -32,6 +32,7 @@ if [[ $DOTPROFILE == intuit ]]; then
   export TT="$IMC/mctx/mandrill-tests"
   export KUBECONFIG="$HOME/.kube/intuit_config"
   [[ -f ~/.config/splunk/credentials ]] && export SPLUNK_PASSWORD=$(cat ~/.config/splunk/credentials)
+  [[ -f ~/.config/pagerduty/credentials ]] && export PAGERDUTY_API_KEY=$(cat ~/.config/pagerduty/credentials)
   export PRAGMA="pragma: akamai-x-cache-on, akamai-x-cache-remote-on, akamai-x-check-cacheable, akamai-x-get-cache-key"
   export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 fi
