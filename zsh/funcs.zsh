@@ -67,6 +67,19 @@ merges() {
   done <<< $merge_shas
 }
 
+# tree with line counts per file
+tl() {
+  tree --noreport -f "$@" | while IFS= read -r line; do
+    filepath=$(echo "$line" | grep -oE '[^ ]+$')
+    if [[ -f "$filepath" ]]; then
+      count=$(wc -l < "$filepath" 2>/dev/null)
+      printf '%s  \e[2m%d lines\e[0m\n' "$line" "$count"
+    else
+      echo "$line"
+    fi
+  done
+}
+
 # personal
 
 if [[ $DOTPROFILE == personal ]]; then
