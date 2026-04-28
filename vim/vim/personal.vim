@@ -10,7 +10,7 @@ function Quote()
   let line = getline('.')
   let line = ' "' . substitute(line, '"', '\\"', 'g') . '"'
   let entry = ' "' . expand('%') . '"'
-  let @* = system('$HW/script/flow.py -q ' . line . entry)
+  let @* = system('$HW/tools/flow -q ' . line . entry)
 endfunction
 
 " vimwiki configs
